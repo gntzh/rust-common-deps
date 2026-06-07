@@ -1,0 +1,421 @@
+[package]
+name = "rust-common-deps"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88.0"                  # MSRV
+description = "Rust common dependencies"
+
+[package.metadata.vendor-filter]
+platforms = [
+    "x86_64-unknown-linux-gnu",
+    "aarch64-unknown-linux-gnu",
+    "x86_64-unknown-linux-musl",
+    "aarch64-unknown-linux-musl",
+]
+
+[dependencies]
+backon = "1.6.0" # 重试，但似乎并无必要
+governor = "0.10.4" # 限流
+minijinja = { version = "2.20.0", features = [
+    "json",
+    "loader",
+    "loop_controls",
+] } # 模板引擎
+nom = "8"
+tar = "0.4.46"
+zstd = "0.13.3"
+notify = "8"
+deadpool = { version = "0.13.0" } # 池管理
+
+# utils/lang
+delegate = "0.13.5"                                   # 通过宏实现方法委托
+strum = { version = "0.28.0", features = ["derive"] } # Enum 属性、方法扩展
+derive_more = { version = "2", features = ["full"] }
+bon = "3.9.1"                                         # Builder Pattern 宏，支持函数参数的builder，很好用，但还不支持嵌套
+enum_dispatch = "0.3.13"                              # 相当于 Sealed Trait 的静态派发，但少用（少用宏、少用依赖）
+displaydoc = "0.2"                                    # 注释作为 Display
+indoc = "2.0.7"                                       # 宏，生成字符串去除前面的缩进
+dyn-clone = "1.0.20"                                  # trait object 的 clone
+static_assertions = "1.1.0"
+
+# utils/macro
+syn = "2.0"
+quote = "1.0"
+proc-macro2 = "1.0"
+
+# std
+regex = "1.12.3" # 正则正则表达式，不支持回溯
+base64 = "0.22.1" # Base64 编码/解码
+hex = "0.4.3" # Hex 编码/解码
+bytes = "1" # 可复用的bytes，减少内存拷贝
+bitflags = "2.13.0"
+
+# std/collections
+either = "1.16.0"
+itertools = "0.14.0"
+indexmap = "2.14.0" # 有序 map/set
+arrayvec = { version = "0.7.6" , features = ["serde"] } # 固定容量的 Vec，放在栈上，适合限制最大容量的场景
+smallvec = {version = "1.15.1", features = ["serde"] }  # 小容量优化的 Vec, 小于指定容量时放在栈上，超过时放在堆上，适合多数时候小数组、偶尔大数组的场景
+bimap = { version = "0.6.3", features = ["serde"] }     # 双向 map ，维护状态不佳，但没更好选择
+
+# std/os
+rand = "0.10.1"    # 随机生成，API变动大，等待 1.0
+fastrand = "2.4.1" # 轻量级随机生成，性能更好，API稳定，适合非密码学场景
+walkdir = "2.5.0"  # 递归遍历目录
+tempfile = "3.27"  # 临时文件、内存文件
+which = "8.0.2"    # 类似 which 命令
+glob = "0.3.3"     # glob 模式匹配
+hostname = "0.4.2" # 获取主机名，零依赖
+chrono = { version = "0.4.45", default-features = false, features = [
+    "serde",
+    "std",
+    "clock",
+] }                # 最旧但也最广泛的一个日期库，择机替换为 jiff （sqlx支持后）
+jiff = "0.2.28"    # 现代日期库，替代 chrono
+
+# std/num
+num-traits = "0.2"
+rust_decimal = { version = "1.42.0", features = ["macros"] }
+
+# std/error
+anyhow = "1.0.102"
+thiserror = "2.0.18"
+
+# std/log
+log = "0.4.32"
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3", features = [
+    "env-filter",
+    "chrono",
+    "json",
+] }
+tracing-appender = "0.2.5"
+tracing-error = "0.2.1"
+prometheus = "0.14.0"
+
+# std/concurrent
+rayon = "1.12"
+dashmap = { version = "6.2.1", features = ["serde"] }
+arc-swap = "1.9.1"
+parking_lot = "0.12.5" # 锁相关同步原语，替代标准化，占用更小、性能更好，没有锁中毒
+
+# std/async
+futures = "0.3.32"
+tokio = { version = "1.52.3", features = ["full"] }
+tokio-stream = "0.1.18"
+trait-variant = "0.1.2"
+async-stream = "0.3"
+
+# std/build
+shadow-rs = { version = "2.0.0", default-features = false } # 构建时信息，默认依赖git、time
+# git2 = { version = "0.19.0", features = ["vendored-libgit2", "vendored-openssl"] }
+rust-embed = { version = "8.11.0", features = [
+    "include-exclude",
+    "interpolate-folder-path",
+    "mime_guess",
+] } # 嵌入文件
+
+# data
+serde = { version = "1.0", features = ["derive"] }
+serde_with = { version = "3.21.0", features = ["json"] }
+serde_repr = "0.1.20"                                    # C-like 枚举的序列化，对于以数字表示的api好用
+# serde-aux = "4.7.0"   # 已移除，主要用于反序列化字符串表示的数字，实际上serde_with完全可以替代
+serde_json = "1.0"
+json-patch = "4.2.0"
+serde_path_to_error = "0.1.20"                            # serde 路径错误定位
+serde_yaml_ng = "0.10.0"                                  # 维护状态不佳，但是运维中还是有很多 yaml 配置
+quick-xml ={ version = "0.40.1", features = ["encoding", "serialize"] }
+csv = "1.4.0"
+toml = "1.1.2"
+toml_edit = "0.25.12"
+schemars = "1.2.1"                                        # 生成 JSON Schema
+validator = { version = "0.20.0", features = ["derive"] }
+# data-type
+uuid = { version = "1.23.2", features = [
+    "v4",                # 随机 UUID
+    "v7",                # 随时间递增 UUID
+    "macro-diagnostics",
+    "fast-rng",
+    "serde",
+] }
+
+# data-excel
+calamine = { version = "0.35.0", features = ["dates"] }
+rust_xlsxwriter = { version = "0.95.0", features = [
+    "chrono",
+    "serde",
+    # "polars",
+] }
+# 问题是C++，不好静态编译到musl
+duckdb = { version = "1.10503.1", features = ["chrono", "bundled", "vtab-excel", "parquet"] }
+# 暂不使用，API不稳定且 MRSV 要求过高
+polars = { version = "0.54.4", features = [
+    "lazy",
+    # "sql", # 太重
+    "random",
+    "timezones",
+    "strings",
+    # data types
+    "dtype-categorical",
+    "dtype-struct",
+    "dtype-decimal",
+    # IO
+    "json",           # JSON 序列化/反序列化
+    "parquet",
+    "serde",
+    "serde-lazy",
+    # DataFrame operations
+    "asof_join",
+    "cross_join",
+    "partition_by",
+    "rows", # pivot and transpose
+    # Series/Expr operations
+    "abs",
+    "arg_where",
+    "cum_agg",
+    "diff",
+    "find_many",
+    "is_in",
+    "is_between",
+    "list_to_struct",
+    "list_sets",
+    "list_count",
+    "log",
+    "offset_by",
+    "pct_change",
+    "range",
+    "rolling_window",
+    "round_series",
+    "unique_counts",
+] }
+# polars-json = "0.52.0"
+
+# http
+http = "1.4.1"
+http-body = "1.0.1"  # HTTP Body 异步stream
+http-body-util = "0.1.3"
+url = "2.5.8" # URL 解析
+serde_qs = "1.1.2" # 支持深层嵌套的 serde_urlencoded，兼容前端qs库格式 (serde_qs > serde_html_form > serde_urlencoded)
+uri-template = { version = "0.1.0", features = ["macros"] }
+percent-encoding = "2.3.2" # 百分号编码/解码
+mime_guess = "2.0.5"
+reqwest = { version = "0.13.4", features = [
+    "blocking",  # 同步 API
+    "cookies",
+    "json",
+    "multipart",
+    "gzip",      # 保留 gzip，不要 deflate
+    "zstd",      # 保留 zstd
+    "socks",
+    "stream",
+    # default
+] }
+# reqwest-middleware = "0.5.0"
+# reqwest-retry = "0.9.0"
+# reqwest-tracing = "0.6.0"
+tokio-tungstenite = {version = "0.29", features = ["rustls-tls-webpki-roots"]}
+
+# HTTP: LB
+# pingora = { version = "0.6.0", features = ["proxy", "time", "lb", "proxy"]}
+
+# database
+sqlx = { version = "0.9.0", features = [
+    "runtime-tokio",
+    "sqlite",
+    "mysql",
+    "postgres",
+    "chrono",
+    "uuid",
+    "json",
+    "rust_decimal",
+] }
+jiff-sqlx = "0.2.0" # jiff 的 SQLx 适配器，提供 jiff::DateTime 与 SQLx 的互操作性
+# toasty = { version = "0.7.0", features = ["jiff","sqlite", "mysql", "postgresql"] } # 仍不成熟，查询、迁移功能缺失
+# turso = "0.6.1" # SQLite 兼容性还是不行，观察
+redis = { version = "1.2.2", features = [
+    "tokio-rustls-comp",
+    "cluster-async",
+    "uuid",
+] } # 官方、稳定1.0
+
+# cli
+clap = { version = "4.6.1", features = ["derive", "env", "wrap_help"] }
+clap_complete = "4.6.5" # clap: 补全
+colorchoice-clap = "1.0.8" # clap: 颜色全局控制参数，常见库中颜色输出均可统一控制，其实修改的是colorchoice库中的约定
+clap-verbosity-flag = { version = "3.0.4", features = [
+    "tracing",
+] } # clap: `-vvv`，包括对日志输出级别的控制
+clio = { version = "0.3.5", features = ["clap-parse"] } # clap: 统一文件参数，包括 `-`
+owo-colors = { version = "4.3.0", features = ["supports-colors"] } # 彩色输出
+tabled = { version = "0.21.0", features = ["ansi"] } # 打印表格样式
+indicatif = "0.18.4" # 进度条
+dialoguer = "0.12.0" # prompt，console/indicatif 的姊妹库，但风格并不喜欢
+# cliclack = "0.3.6" # prompt，不额外引入依赖了，还是用 dialoguer
+console = "0.16.3" # 与终端交互
+figment = { version = "0.10", features = [
+    "env",
+    "toml",
+] } # 配置管理，config-rs 维护状态不佳
+dotenvy = "0.15" # .env 文件支持
+dirs = "6.0.0" # XDG 目录标准
+notify-rust = "4.17.0" # 桌面通知
+# cli-gui
+open = "5.3.5" # 打开URI（轻量，无系统依赖）
+arboard = "3.6.1" # 剪贴板
+rfd = { version = "0.17.2", default-features = false, features = [
+    "xdg-portal",
+] } # 文件选择窗口，默认依赖Wayland系统库以静态链接，使用
+wayland-backend = { version = "*", features = ["dlopen"] }
+
+# TUI
+ratatui = "0.30.1"   # TUI
+crossterm = "0.29.0" # ratatui 的后端
+
+# web
+axum = { version = "0.8.9", features = ["multipart", "ws"] }
+axum-extra = { version = "0.12.6", features = [
+    "attachment",
+    "cookie",
+    "error-response",
+    "form",
+    "json-lines",
+    "json-deserializer",
+    "multipart",
+    "query",
+    "typed-routing",
+    "typed-header",
+] }
+axum_typed_multipart = "0.16.6"
+axum-valid = "0.24.0"
+tower = { version = "0.5", features = ["full"] }
+tower-http = { version = "0.6.11", features = ["full"] }
+# axum-login = "0.17"
+# tower-sessions = "0.14"
+# tower-sessions-redis-store = "0.16"
+jsonwebtoken = { version = "10.4.0", features = ["rust_crypto"] }
+listenfd = "1.0.2"
+tokio-cron-scheduler = { version = "0.15.1", features = [
+    "signal",
+] } # 定时/后台任务，考虑替换为 apalis ，但后者有些重了
+apalis = { version = "1.0.0-rc.9" , features = [
+    "retry",
+    "timeout",
+    "limit",
+    "filter",
+    "catch-panic",
+]}
+apalis-cron = "1.0.0-rc.8"
+apalis-postgres = "1.0.0-rc.8"
+apalis-workflow = "0.1.0-rc.9"
+apalis-board = { version = "1.0.0-rc.8", features = ["axum", "ui", "web"] }
+utoipa = { version = "5.5.0", features = [
+    "config",
+    "axum_extras",
+    "chrono",
+    "uuid",
+    "url",
+] }
+utoipa-axum = "0.2"
+# utoipa-scalar = { version = "0.1.0", features = ["axum"] }
+utoipa-swagger-ui = { version = "9.0.2", features = ["axum", "vendored"] }
+slug = "0.1"                                                               # slugify a string
+
+# network
+ipnet = { version = "2.12.0", features = ["serde"] } # IP网络集合表示
+
+# OS
+sysinfo = "0.38.4"
+# unix
+# nix = "0.31.1"
+rustix = "1.1.4"
+
+# cloud-native
+opendal = { version = "0.57.0", features = [
+    "services-fs",
+    "services-http", # 只读，但也很好用了
+    "services-s3",
+    "services-obs", # 华为 OBS
+    # "services-sftp", #目前依赖openssh，不使用
+] }
+
+# crypto
+# crypto/hash
+sha1 = "0.11.0" # sha-1，遗留，偶尔
+sha2 = "0.11.0" # sha-2
+sha3 = "0.12.0" # sha-3
+md-5 = "0.11.0" # md5，遗留，使用太多
+# MAC
+hmac = "0.13.0" # Hash-MAC
+# crypto/Symmetric encryption
+aes-gcm = "0.10.3"  # AES GCM 模式，更安全、更现代
+ctr = "0.10.1"      # AES CTR 模式，遗留，使用太多
+cbc = "0.2.1"       # AES CBC 模式，遗留，使用太多
+cfb-mode = "0.9.1"       # AES CFB 模式，遗留，使用太多(SNMP)
+blowfish = "0.10.0" # Blowfish 加密算法，遗留，使用太多
+# crypto/password
+password-auth = "1.0.0"
+argon2 = "0.5"                                         # KDF 算法
+secrecy = { version = "0.10.3", features = ["serde"] } # 和密码无关，只是用于安全包裹敏感数据
+
+# string
+strsim = "0.11.1" # 字符串相似度，可用于告警相似度
+similar = "3.1.1" # 序列和文本diff算法
+
+# infra
+mimalloc = "0.1.52"                                  # 内存分配器，性能更好，尤其要替换musl的默认内存分配器
+ring = { version = "*" }                             # 目前作者将该库仍定位于实验品，不要直接依赖
+rustls = { version = "*" }
+openssl = { version = "*", features = ["vendored"] }
+
+# top
+
+# domain/ops
+async-ssh2-tokio = "0.12.2"                            # SSH 客户端，依赖 russh
+expectrl = { version = "0.9.0", features = ["async"] } # 小型库，暂时用不到
+shlex = "2.0.1"                                        # shell 字符串转义
+strip-ansi-escapes = "0.2.1"                           # shell ansi控制字符剥离
+ansi-to-html = "0.2.3"                                 # shell ansi控制字符转html
+
+# domain/snmp # SNMP v3 安全认证部分完整实现过于复杂
+snmp2 = { version = "0.5.0", features = ["full"] }
+
+# domain/ai-ml
+agent-client-protocol = "0.14.0" # ACP 的服务端/客户端协议实现
+rmcp = { version = "1.7.0", features = ["server"] } # MCP 的服务端/客户端协议实现
+
+# domain-spider
+# scraper = "0.23"      # HTML/CSS 解析查询
+# thirtyfour = "0.35"   # Web Driver
+# playwright-rs = "0.9" #
+chromiumoxide = { version = "0.9.1" } # CDP API
+
+# domain-email
+lettre = { version = "0.11.22", default-features = false, features = [
+    "tokio1",
+    "builder",
+    "hostname",
+    "pool",
+    "smtp-transport",
+] }
+email_address = "0.2.9"
+
+# domain/doc
+pulldown-cmark = "0.13.4"
+printpdf = "0.9.1"        # 比lopdf、pdf-writer更高层次的PDF生成库
+# 缺失docx生成
+
+# domain/ebpf
+# aya = "0.13.1"
+
+[dev-dependencies]
+test-log = { version = "0.2.21", features = ["trace"] } # 测试时捕获log输出
+proptest = "1.11.0"                                      # 属性测试
+sqlx-cli = "0.9.0"
+# rustlings = "6.4"
+# systemfd = "0.4"
+# evcxr_repl = "0.19.0" # REPL
+# cargo-typify = "0.5.0"
+# bpf-linker
+
+[build-dependencies]
+shadow-rs = "*"
