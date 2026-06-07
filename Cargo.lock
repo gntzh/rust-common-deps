@@ -6474,6 +6474,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "mib-rs"
+version = "0.8.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fa54954dd17bd3c2d86df5f1f4e2f01c6ce97daaedf2591b76abccb5e1885ccf"
+dependencies = [
+ "clap",
+ "dashmap",
+ "dirs",
+ "petgraph",
+ "rayon",
+ "serde",
+ "serde_json",
+ "smallvec",
+ "thiserror 2.0.18",
+ "tracing",
+ "tracing-subscriber",
+ "walkdir",
+]
+
+[[package]]
 name = "mimalloc"
 version = "0.1.52"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -10009,6 +10029,7 @@ dependencies = [
  "listenfd",
  "log",
  "md-5 0.11.0",
+ "mib-rs",
  "mimalloc",
  "mime_guess",
  "minijinja",
