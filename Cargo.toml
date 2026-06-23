@@ -2,7 +2,7 @@
 name = "rust-common-deps"
 version = "0.1.0"
 edition = "2024"
-rust-version = "1.88.0"                  # MSRV
+rust-version = "1.95.0"                  # MSRV
 description = "Rust common dependencies"
 
 [package.metadata.vendor-filter]
@@ -123,7 +123,7 @@ serde_path_to_error = "0.1.20"                            # serde 路径错误�
 serde_json = "1.0"
 json-patch = "4.2.0"
 serde_yaml_ng = "0.10.0"                                  # 维护状态不佳，但是运维中还是有很多 yaml 配置
-quick-xml ={ version = "0.40.1", features = ["encoding", "serialize"] }
+quick-xml = { version = "0.40.1", features = ["encoding", "serialize"] }
 csv = "1.4.0"
 toml = "1.1.2"
 toml_edit = "0.25.12"
@@ -258,7 +258,7 @@ figment = { version = "0.10", features = [
 ] } # 配置管理，config-rs 维护状态不佳
 dotenvy = "0.15" # .env 文件支持
 dirs = "6.0.0" # XDG 目录标准
-notify-rust = "4.17.0" # 桌面通知
+notify-rust = "4.18.0" # 桌面通知
 # cli-gui
 open = "5.3.5" # 打开URI（轻量，无系统依赖）
 arboard = "3.6.1" # 剪贴板
@@ -325,7 +325,7 @@ ipnet = { version = "2.12.0", features = ["serde"] } # IP网络集合表示
 prefix-trie = "0.9.2"
 
 # OS
-sysinfo = "0.38.4"
+sysinfo = "0.39.5"
 # unix
 # nix = "0.31.1"
 rustix = "1.1.4"
@@ -382,7 +382,7 @@ snmp2 = { version = "0.5.0", features = ["full"] }
 mib-rs = "0.8"
 
 # domain/ai-ml
-agent-client-protocol = "0.15.0" # ACP 的服务端/客户端协议实现
+agent-client-protocol = "0.15.1" # ACP 的服务端/客户端协议实现
 rmcp = { version = "1.7.0", features = ["server"] } # MCP 的服务端/客户端协议实现
 
 # domain-spider
