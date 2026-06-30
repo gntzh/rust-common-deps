@@ -9,13 +9,13 @@ vendor: ## vendor
 	rm -rf vendor
 	cargo vendor --versioned-dirs -v
 	# -s crates/ironic-templates/Cargo.toml
+	# -s sqlx-deps/Cargo.toml
 
 .PHONY: vendor-filterer
 vendor-filterer: ## vendor-filterer
 	rm -rf vendor
 	cargo vendor-filterer --versioned-dirs \
-	-s Cargo.toml \
-	-s sqlx-deps/Cargo.toml
+	-s Cargo.toml
 
 .PHONY: compress
 compress: ## Compress vendor as tar.xz
