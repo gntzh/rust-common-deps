@@ -8482,6 +8482,7 @@ dependencies = [
  "expectrl",
  "fastrand 2.5.0",
  "figment",
+ "flate2",
  "futures",
  "glob",
  "globset",

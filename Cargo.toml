@@ -22,8 +22,6 @@ minijinja = { version = "2.21.0", features = [
     "loop_controls",
 ] } # 模板引擎
 nom = "8"
-tar = "0.4.46"    # rust 实现
-zstd = "0.13.3"   # rust 实现
 notify = "8"
 deadpool = { version = "0.13.0" } # 池管理
 rquickjs ={ version = "0.12.1", features = ["macro", "indexmap"]}
@@ -107,6 +105,11 @@ tokio = { version = "1.53.0", features = ["full"] }
 tokio-stream = "0.1.18"
 trait-variant = "0.1.2"
 async-stream = "0.3"
+
+# std/zip
+flate2 = "1.1.9"  # 来自Rust官方，支持gzip、deflate、zip，有多个后端，默认是rust实现
+tar = "0.4.46"    # rust 实现
+zstd = "0.13.3"   # rust 实现
 
 # std/build
 shadow-rs = { version = "2.0.0", default-features = false } # 构建时信息，默认依赖git、time
