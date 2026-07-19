@@ -341,6 +341,13 @@ resonate-sdk = "0.5.0"
 # apalis-workflow = "0.1.0-rc.9"
 # apalis-board = { version = "1.0.0-rc.8", features = ["axum", "ui", "web"] } # 体积太大
 
+# grpc
+tonic = "0.14.6"
+prost = "0.14.4"
+tonic-prost = "0.14.6"
+kube = { version = "4.0.0", features = ["runtime", "derive"] }
+k8s-openapi = { version = "0.28.0", features = ["latest", "schemars"] }
+
 # network
 ipnet = { version = "2.12.0", features = ["serde"] } # IP网络集合表示
 prefix-trie = "0.9.4"
