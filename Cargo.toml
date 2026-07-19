@@ -26,7 +26,7 @@ tar = "0.4.46"    # rust 实现
 zstd = "0.13.3"   # rust 实现
 notify = "8"
 deadpool = { version = "0.13.0" } # 池管理
-rquickjs ={ version = "0.12.0", features = ["macro", "indexmap"]}
+rquickjs ={ version = "0.12.1", features = ["macro", "indexmap"]}
 
 # utils/lang
 delegate = "0.13.5"                                   # 通过宏实现方法委托
@@ -40,48 +40,48 @@ dyn-clone = "1.0.20"                                  # trait object 的 clone
 static_assertions = "1.1.0"
 
 # utils/macro
-syn = "2.0"
+syn = "3.0.0"
 quote = "1.0"
 proc-macro2 = "1.0"
 
 # std
-regex = "1.12.4"  # 正则正则表达式，不支持回溯
+regex = "1.13.1"  # 正则正则表达式，不支持回溯
 base64 = "0.22.1" # Base64 编码/解码
 hex = "0.4.3"     # Hex 编码/解码
 bytes = "1"       # 可复用的bytes，减少内存拷贝
-bitflags = "2.13.0"
+bitflags = "2.13.1"
 
 # std/collections
 either = "1.16.0"
 itertools = "0.15.0"
 indexmap = "2.14.0" # 有序 map/set
-arrayvec = { version = "0.7.7" , features = ["serde"] } # 固定容量的 Vec，放在栈上，适合限制最大容量的场景
+arrayvec = { version = "0.7.8" , features = ["serde"] } # 固定容量的 Vec，放在栈上，适合限制最大容量的场景
 smallvec = {version = "1.15.2", features = ["serde"] }  # 小容量优化的 Vec, 小于指定容量时放在栈上，超过时放在堆上，适合多数时候小数组、偶尔大数组的场景
 bimap = { version = "0.6.3", features = ["serde"] }     # 双向 map ，维护状态不佳，但没更好选择
 
 # std/os
-rand = "0.10.1"    # 随机生成，API变动大，等待 1.0
-fastrand = "2.4.1" # 轻量级随机生成，性能更好，API稳定，适合非密码学场景
+rand = "0.10.2"    # 随机生成，API变动大，等待 1.0
+fastrand = "2.5.0" # 轻量级随机生成，性能更好，API稳定，适合非密码学场景
 walkdir = "2.5.0"  # 递归遍历目录
 tempfile = "3.27"  # 临时文件、内存文件
-which = "8.0.4"    # 类似 which 命令
+which = "8.0.5"    # 类似 which 命令
 glob = "0.3.3"     # glob 模式匹配, 来自 rust 官方
-globset = "0.4.18" # 支持一组glob，来自 ripgrep
+globset = "0.4.19" # 支持一组glob，来自 ripgrep
 hostname = "0.4.2" # 获取主机名，零依赖
 chrono = { version = "0.4.45", default-features = false, features = [
     "serde",
     "std",
     "clock",
 ] }                # 最旧但也最广泛的一个日期库，择机替换为 jiff （sqlx支持后）
-jiff = "0.2.31"    # 现代日期库，替代 chrono
+jiff = "0.2.33"    # 现代日期库，替代 chrono
 
 # std/num
 num-traits = "0.2"
 rust_decimal = { version = "1.42.1", features = ["macros"] }
 
 # std/error
-anyhow = "1.0.103"
-thiserror = "2.0.18"
+anyhow = "1.0.104"
+thiserror = "2.0.19"
 
 # std/log tracing
 log = "0.4.33"
@@ -102,8 +102,8 @@ dashmap = { version = "6.2.1", features = ["serde"] } # 并发 Map
 parking_lot = "0.12.5" # 锁相关同步原语，替代标准化，占用更小、性能更好，没有锁中毒
 
 # std/async
-futures = "0.3.32"
-tokio = { version = "1.52.3", features = ["full"] }
+futures = "0.3.33"
+tokio = { version = "1.53.0", features = ["full"] }
 tokio-stream = "0.1.18"
 trait-variant = "0.1.2"
 async-stream = "0.3"
@@ -111,7 +111,7 @@ async-stream = "0.3"
 # std/build
 shadow-rs = { version = "2.0.0", default-features = false } # 构建时信息，默认依赖git、time
 # git2 = { version = "0.19.0", features = ["vendored-libgit2", "vendored-openssl"] }
-rust-embed = { version = "8.11.0", features = [
+rust-embed = { version = "8.12.0", features = [
     "include-exclude",
     "interpolate-folder-path",
     "mime_guess",
@@ -120,7 +120,7 @@ rust-embed = { version = "8.11.0", features = [
 # data
 serde = { version = "1.0", features = ["derive"] }
 serde_with = { version = "3.21.0", features = ["json"] }
-serde_repr = "0.1.20"                                    # C-like 枚举的序列化，对于以数字表示的api好用
+serde_repr = "0.1.21"                                    # C-like 枚举的序列化，对于以数字表示的api好用
 serde_path_to_error = "0.1.20"                            # serde 路径错误定位
 # data/json
 serde_json = "1.0"
@@ -130,12 +130,12 @@ json-patch = "4.2.0"
 serde_yaml_ng = "0.10.0"                                  # 维护状态不佳，但是运维中还是有很多 yaml 配置
 quick-xml = { version = "0.41.0", features = ["encoding", "serialize"] }
 csv = "1.4.0"
-toml = {version = "1.1.2", features = ["preserve_order"]}
-toml_edit = "0.25.12"
+toml = {version = "1.1.3", features = ["preserve_order"]}
+toml_edit = "0.25.13"
 schemars = "1.2.1"                                        # 生成 JSON Schema
 validator = { version = "0.20.0", features = ["derive"] }
 # data-type
-uuid = { version = "1.23.4", features = [
+uuid = { version = "1.24.0", features = [
     "v4",                # 随机 UUID
     "v7",                # 随时间递增 UUID
     "macro-diagnostics",
@@ -144,15 +144,15 @@ uuid = { version = "1.23.4", features = [
 ] }
 
 # data-excel
-calamine = { version = "0.35.0", features = ["dates"] }
-rust_xlsxwriter = { version = "0.95.0", features = [
+calamine = { version = "0.36.0", features = ["dates"] }
+rust_xlsxwriter = { version = "0.96.0", features = [
     "chrono",
     "serde",
     # "polars",
 ] }
 # 问题是这是一个大型的C++依赖，不好静态编译到musl
 # duckdb = { version = "1.10503.1", features = ["chrono", "bundled", "vtab-excel", "parquet"] }
-parquet = { version = "59.0.0", features = ["async", "json"]}
+parquet = { version = "59.1.0", features = ["async", "json"]}
 # 暂不使用，Rust版本的API不稳定，且 MRSV 要求过高
 polars = { version = "0.54.4", features = [
     "lazy",
@@ -197,8 +197,8 @@ polars = { version = "0.54.4", features = [
 
 # http
 http = "1.4.2"
-http-body = "1.0.1"  # HTTP Body 异步stream
-http-body-util = "0.1.3"
+http-body = "1.1.0"  # HTTP Body 异步stream
+http-body-util = "0.1.4"
 url = "2.5.8" # URL 解析
 serde_qs = "1.1.2" # 支持深层嵌套的 serde_urlencoded，兼容前端qs库格式 (serde_qs > serde_html_form > serde_urlencoded)
 uri-template = { version = "0.1.0", features = ["macros"] }
@@ -218,7 +218,7 @@ reqwest = { version = "0.13.4", features = [
 # reqwest-middleware = "0.5.0"
 # reqwest-retry = "0.9.0"
 # reqwest-tracing = "0.6.0"
-tokio-tungstenite = {version = "0.29", features = ["rustls-tls-webpki-roots"]}
+tokio-tungstenite = {version = "0.30.0", features = ["rustls-tls-webpki-roots"]}
 
 # HTTP: LB
 # pingora = { version = "0.6.0", features = ["proxy", "time", "lb", "proxy"]}
@@ -241,15 +241,15 @@ sqlx = { version = "0.9.0", features = [
 jiff-sqlx = "0.2.0" # jiff 的 SQLx 适配器，提供 jiff::DateTime 与 SQLx 的互操作性
 # toasty = { version = "0.7.0", features = ["jiff","sqlite", "mysql", "postgresql"] } # 仍不成熟，查询、迁移功能缺失
 # turso = "0.6.1" # SQLite 兼容性还是不行，观察
-redis = { version = "1.3.0", features = [
+redis = { version = "1.4.1", features = [
     "tokio-rustls-comp",
     "cluster-async",
     "uuid",
 ] } # 官方、稳定1.0
 
 # cli
-clap = { version = "4.6.1", features = ["derive", "env", "wrap_help"] }
-clap_complete = "4.6.5" # clap: 补全
+clap = { version = "4.6.2", features = ["derive", "env", "wrap_help"] }
+clap_complete = "4.6.7" # clap: 补全
 colorchoice-clap = "1.0.8" # clap: 颜色全局控制参数，常见库中颜色输出均可统一控制，其实修改的是colorchoice库中的约定
 clap-verbosity-flag = { version = "3.0.4", features = [
     "tracing",
@@ -257,10 +257,10 @@ clap-verbosity-flag = { version = "3.0.4", features = [
 clio = { version = "0.3.5", features = ["clap-parse"] } # clap: 统一文件参数，包括 `-`
 owo-colors = { version = "4.3.0", features = ["supports-colors"] } # 彩色输出
 tabled = { version = "0.21.0", features = ["ansi"] } # 打印表格样式
-indicatif = "0.18.5" # 进度条
+indicatif = "0.18.6" # 进度条
 dialoguer = "0.12.0" # prompt，console/indicatif 的姊妹库，但风格并不喜欢
 # cliclack = "0.3.6" # prompt，不额外引入依赖了，还是用 dialoguer
-console = "0.16.3" # 与终端交互
+console = "0.16.4" # 与终端交互
 figment = { version = "0.10", features = [
     "env",
     "toml",
@@ -269,7 +269,7 @@ dotenvy = "0.15" # .env 文件支持
 dirs = "6.0.0" # XDG 目录标准
 notify-rust = "4.18.0" # 桌面通知
 # cli-gui
-open = "5.3.6" # 打开URI（轻量，无系统依赖）
+open = "5.4.0" # 打开URI（轻量，无系统依赖）
 arboard = "3.6.1" # 剪贴板
 rfd = { version = "0.17.2", default-features = false, features = [
     "xdg-portal",
@@ -333,11 +333,11 @@ resonate-sdk = "0.5.0"
 
 # network
 ipnet = { version = "2.12.0", features = ["serde"] } # IP网络集合表示
-prefix-trie = "0.9.2"
+prefix-trie = "0.9.4"
 mac_address = "1.1.8"
 
 # OS
-sysinfo = "0.39.5"
+sysinfo = "0.39.6"
 # unix
 # nix = "0.31.1"
 rustix = "1.1.4"
@@ -384,19 +384,19 @@ rustls = { version = "*" }
 # top
 
 # domain/ops
-async-ssh2-tokio = "0.12.2"                            # SSH 客户端，依赖 russh
+async-ssh2-tokio = "0.13.0"                            # SSH 客户端，依赖 russh
 expectrl = { version = "0.9.0", features = ["async"] } # 小型库，暂时用不到
 shlex = "2.0.1"                                        # shell 字符串转义
 strip-ansi-escapes = "0.2.1"                           # shell ansi控制字符剥离
 ansi-to-html = "0.2.3"                                 # shell ansi控制字符转html
 
 # domain/snmp # SNMP v3 安全认证部分完整实现过于复杂
-snmp2 = { version = "0.5.0", features = ["full"] }
+snmp2 = { version = "0.5.2", features = ["full"] }
 mib-rs = "0.8"
 
 # domain/ai-ml
-agent-client-protocol = "1.0.1" # ACP 的服务端/客户端协议实现
-rmcp = { version = "2.0.0", features = ["server"] } # MCP 的服务端/客户端协议实现
+agent-client-protocol = "1.2.0" # ACP 的服务端/客户端协议实现
+rmcp = { version = "2.2.0", features = ["server"] } # MCP 的服务端/客户端协议实现
 
 # domain-spider
 # scraper = "0.23"      # HTML/CSS 解析查询
@@ -416,7 +416,7 @@ email_address = "0.2.9"
 
 # domain/doc
 pulldown-cmark = "0.13.4"
-printpdf = "0.9.1"        # 比lopdf、pdf-writer更高层次的PDF生成库
+printpdf = "0.11.3"        # 比lopdf、pdf-writer更高层次的PDF生成库
 # 缺失docx生成
 
 # domain/ebpf
