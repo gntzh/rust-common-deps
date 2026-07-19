@@ -74,14 +74,14 @@ chrono = { version = "0.4.45", default-features = false, features = [
 jiff = "0.2.33"    # 现代日期库，替代 chrono
 
 # std/num
-num-traits = "0.2"
+num-traits = "0.2.19"
 rust_decimal = { version = "1.42.1", features = ["macros"] }
 
 # std/error
 anyhow = "1.0.104"
 thiserror = "2.0.19"
 
-# std/log tracing
+# std/log and tracing
 log = "0.4.33"
 tracing = "0.1.44"
 tracing-subscriber = { version = "0.3", features = [
@@ -92,6 +92,12 @@ tracing-subscriber = { version = "0.3", features = [
 tracing-appender = "0.2.5"
 tracing-error = "0.2.1"
 # prometheus = "0.14.0"
+opentelemetry = "0.32.0"                      # OpenTelemetry 公共依赖
+opentelemetry_sdk = "0.32.1"                  # OpenTelemetry SDK: Tracing/Log/Metrics
+opentelemetry-semantic-conventions = "0.32.1" # OpenTelemetry 语义约定
+opentelemetry-otlp = "0.32.0"                 # OpenTelemetry OTLP Exporter 实现，能对接标准的 OpenTelemetry Collector，支持 gRPC、HTTP/JSON、HTTP/Protobuf
+opentelemetry-stdout = "0.32.0"               # OpenTelemetry 直接输出到 stdout，测试使用
+tracing-opentelemetry = "0.33.0"              # OpenTelemetry 与 tracing 集成，把 tracing span/事件转换为OTel的span/事件
 
 # std/concurrent
 rayon = "1.12"
@@ -101,9 +107,10 @@ parking_lot = "0.12.5" # 锁相关同步原语，替代标准化，占用更小�
 
 # std/async
 futures = "0.3.33"
+async-trait = "0.1.91"
+trait-variant = "0.1.2"
 tokio = { version = "1.53.0", features = ["full"] }
 tokio-stream = "0.1.18"
-trait-variant = "0.1.2"
 async-stream = "0.3"
 
 # std/zip
