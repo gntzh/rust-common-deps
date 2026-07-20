@@ -16,6 +16,7 @@ platforms = [
 [dependencies]
 backon = "1.6.0"    # 重试，但似乎并无必要
 governor = "0.10.4" # 限流
+moka = "0.5.4"      # 缓存
 minijinja = { version = "2.21.0", features = [
     "json",
     "loader",
@@ -38,7 +39,7 @@ dyn-clone = "1.0.20"                                  # trait object 的 clone
 static_assertions = "1.1.0"
 
 # utils/macro
-syn = "3.0.0"
+syn = "3.0.1"
 quote = "1.0"
 proc-macro2 = "1.0"
 
@@ -71,7 +72,7 @@ chrono = { version = "0.4.45", default-features = false, features = [
     "std",
     "clock",
 ] }                # 最旧但也最广泛的一个日期库，择机替换为 jiff （sqlx支持后）
-jiff = "0.2.33"    # 现代日期库，替代 chrono
+jiff = "0.2.34"    # 现代日期库，替代 chrono
 
 # std/num
 num-traits = "0.2.19"
