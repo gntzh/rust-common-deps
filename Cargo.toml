@@ -16,7 +16,7 @@ platforms = [
 [dependencies]
 backon = "1.6.0"    # 重试，但似乎并无必要
 governor = "0.10.4" # 限流
-moka = "0.5.4"      # 缓存
+moka = "0.12.15"    # 缓存
 minijinja = { version = "2.21.0", features = [
     "json",
     "loader",
@@ -39,7 +39,7 @@ dyn-clone = "1.0.20"                                  # trait object 的 clone
 static_assertions = "1.1.0"
 
 # utils/macro
-syn = "3.0.1"
+syn = "3.0.2"
 quote = "1.0"
 proc-macro2 = "1.0"
 
@@ -57,6 +57,20 @@ indexmap = "2.14.0" # 有序 map/set
 arrayvec = { version = "0.7.8" , features = ["serde"] } # 固定容量的 Vec，放在栈上，适合限制最大容量的场景
 smallvec = {version = "1.15.2", features = ["serde"] }  # 小容量优化的 Vec, 小于指定容量时放在栈上，超过时放在堆上，适合多数时候小数组、偶尔大数组的场景
 bimap = { version = "0.6.3", features = ["serde"] }     # 双向 map ，维护状态不佳，但没更好选择
+
+# std/concurrent
+rayon = "1.12"
+arc-swap = "1.9.2"
+dashmap = { version = "6.2.1", features = ["serde"] } # 并发 Map
+parking_lot = "0.12.5" # 锁相关同步原语，替代标准化，占用更小、性能更好，没有锁中毒
+
+# std/async
+futures = "0.3.33"
+async-trait = "0.1.91"
+trait-variant = "0.1.2"
+tokio = { version = "1.53.0", features = ["full"] }
+tokio-stream = "0.1.18"
+async-stream = "0.3"
 
 # std/os
 rand = "0.10.2"    # 随机生成，API变动大，等待 1.0
@@ -100,20 +114,6 @@ opentelemetry-otlp = "0.32.0"                 # OpenTelemetry OTLP Exporter 实�
 opentelemetry-stdout = "0.32.0"               # OpenTelemetry 直接输出到 stdout，测试使用
 tracing-opentelemetry = "0.33.0"              # OpenTelemetry 与 tracing 集成，把 tracing span/事件转换为OTel的span/事件
 
-# std/concurrent
-rayon = "1.12"
-arc-swap = "1.9.2"
-dashmap = { version = "6.2.1", features = ["serde"] } # 并发 Map
-parking_lot = "0.12.5" # 锁相关同步原语，替代标准化，占用更小、性能更好，没有锁中毒
-
-# std/async
-futures = "0.3.33"
-async-trait = "0.1.91"
-trait-variant = "0.1.2"
-tokio = { version = "1.53.0", features = ["full"] }
-tokio-stream = "0.1.18"
-async-stream = "0.3"
-
 # std/zip
 flate2 = "1.1.9"  # 来自Rust官方，支持gzip、deflate、zip，有多个后端，默认是rust实现
 tar = "0.4.46"    # rust 实现
@@ -141,7 +141,7 @@ json-patch = "4.2.0"
 serde_yaml_ng = "0.10.0"                                  # 维护状态不佳，但是运维中还是有很多 yaml 配置
 quick-xml = { version = "0.41.0", features = ["encoding", "serialize"] }
 csv = "1.4.0"
-toml = {version = "1.1.3", features = ["preserve_order"]}
+toml = { version = "1.1.3", features = ["preserve_order"] }
 toml_edit = "0.25.13"
 schemars = "1.2.1"                                        # 生成 JSON Schema
 validator = { version = "0.20.0", features = ["derive"] }
