@@ -5347,7 +5347,7 @@ dependencies = [
  "module-lattice",
  "pkcs8 0.11.0",
  "rand_core 0.10.1",
- "sha3 0.11.0",
+ "sha3",
 ]
 
 [[package]]
@@ -8173,12 +8173,15 @@ version = "1.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b0b9503711b03773e43b31668c7b5bd279ee7cd9b7d18cff7c23a42cc1d08e5a"
 dependencies = [
+ "arc-swap",
  "arcstr",
  "async-lock",
+ "backon",
  "bytes",
  "cfg-if",
  "combine",
  "crc16",
+ "futures-channel",
  "futures-util",
  "itoa",
  "log",
@@ -8781,7 +8784,7 @@ dependencies = [
  "sec1 0.8.1",
  "sha1 0.11.0",
  "sha2 0.11.0",
- "sha3 0.11.0",
+ "sha3",
  "signature 3.0.0",
  "spki 0.8.0",
  "ssh-encoding",
@@ -8976,7 +8979,6 @@ dependencies = [
  "serde_yaml_ng",
  "sha1 0.11.0",
  "sha2 0.11.0",
- "sha3 0.12.0",
  "shadow-rs",
  "shlex",
  "similar",
@@ -9771,17 +9773,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "sha3"
-version = "0.12.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bc9bad02c26382724b2d2692c6f179285e4b54eeecd7968f52a50059c3c11759"
-dependencies = [
- "digest 0.11.2",
- "keccak",
- "sponge-cursor",
-]
-
-[[package]]
 name = "shadow-rs"
 version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -10069,12 +10060,6 @@ dependencies = [
  "base64ct",
  "der 0.8.1",
 ]
-
-[[package]]
-name = "sponge-cursor"
-version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3a0219bd7d979d58245a4f41f695e1ac9f8befdffadd7f61f1bae9e39abc6620"
 
 [[package]]
 name = "sqlparser"

@@ -255,6 +255,7 @@ jiff-sqlx = "0.2.0" # jiff 的 SQLx 适配器，提供 jiff::DateTime 与 SQLx �
 redis = { version = "1.4.1", features = [
     "tokio-rustls-comp",
     "cluster-async",
+    "connection-manager",
     "uuid",
 ] } # 官方、稳定1.0
 
@@ -371,10 +372,10 @@ opendal = { version = "0.57.0", features = [
 
 # crypto
 # crypto/hash
-sha1 = "0.11.0" # sha-1，遗留，偶尔
-sha2 = "0.11.0" # sha-2
-sha3 = "0.12.0" # sha-3
-md-5 = "0.11.0" # md5，遗留，使用太多
+md-5 = "0.11.0"  # md5，遗留，使用太多
+sha1 = "0.11.0"  # sha1系列，遗留，偶尔
+sha2 = "0.11.0"  # sha2 系列
+# blake3 = "1.8.5" # 比 sha3 更具竞争力
 # MAC
 hmac = "0.13.0" # Hash-MAC
 # crypto/Symmetric encryption
