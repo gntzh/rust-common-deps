@@ -330,7 +330,7 @@ utoipa-axum = "0.2"
 utoipa-swagger-ui = { version = "9.0.2", features = ["axum", "vendored"] }
 slug = "0.1.6"  # slugify a string
 # durable execution engine
-resonate-sdk = "0.5.0"
+# resonate-sdk = "0.5.0"
 # apalis = { version = "1.0.0-rc.9" , features = [
 #     "retry",
 #     "timeout",
