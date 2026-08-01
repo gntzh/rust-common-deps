@@ -156,7 +156,7 @@ uuid = { version = "1.24.0", features = [
 
 # data-excel
 calamine = { version = "0.36.1", features = ["dates"] }
-rust_xlsxwriter = { version = "0.96.0", features = [
+rust_xlsxwriter = { version = "0.97.0", features = [
     "chrono",
     "serde",
     # "polars",
@@ -207,7 +207,7 @@ polars = { version = "0.54.4", features = [
 # polars-json = "0.52.0"
 
 # http
-http = "1.4.2"
+http = "1.5.0"
 http-body = "1.1.0"  # HTTP Body 异步stream
 http-body-util = "0.1.4"
 url = "2.5.8" # URL 解析
@@ -252,7 +252,7 @@ sqlx = { version = "0.9.0", features = [
 jiff-sqlx = "0.2.0" # jiff 的 SQLx 适配器，提供 jiff::DateTime 与 SQLx 的互操作性
 # toasty = { version = "0.7.0", features = ["jiff","sqlite", "mysql", "postgresql"] } # 仍不成熟，查询、迁移功能缺失
 # turso = "0.6.1" # SQLite 兼容性还是不行，观察
-redis = { version = "1.4.1", features = [
+redis = { version = "1.5.0", features = [
     "tokio-rustls-comp",
     "cluster-async",
     "connection-manager",
@@ -260,7 +260,7 @@ redis = { version = "1.4.1", features = [
 ] } # 官方、稳定1.0
 
 # cli
-clap = { version = "4.6.4", features = ["derive", "env", "wrap_help"] }
+clap = { version = "4.6.5", features = ["derive", "env", "wrap_help"] }
 clap_complete = "4.6.8" # clap: 补全
 colorchoice-clap = "1.0.8" # clap: 颜色全局控制参数，常见库中颜色输出均可统一控制，其实修改的是colorchoice库中的约定
 clap-verbosity-flag = { version = "3.0.4", features = [
@@ -331,7 +331,7 @@ utoipa-swagger-ui = { version = "9.0.2", features = ["axum", "vendored"] }
 slug = "0.1.6"  # slugify a string
 # durable execution engine
 # 暂不考虑引入额外的中间件
-# restate-sdk = "0.11.0"
+restate-sdk = "0.11.0"
 # resonate-sdk = "0.6.0"
 # apalis = { version = "1.0.0-rc.9" , features = [
 #     "retry",
@@ -344,6 +344,9 @@ slug = "0.1.6"  # slugify a string
 # apalis-postgres = "1.0.0-rc.8"
 # apalis-workflow = "0.1.0-rc.9"
 # apalis-board = { version = "1.0.0-rc.8", features = ["axum", "ui", "web"] } # 体积太大
+ldap3 = { version = "0.12.1", default-features = false, features = [
+    "tls-rustls-aws-lc-rs"
+] } # LDAP 客户端
 
 # grpc
 tonic = "0.14.6"
@@ -364,7 +367,7 @@ sysinfo = "0.39.6"
 rustix = "1.1.4"
 
 # cloud-native
-opendal = { version = "0.57.0", features = [
+opendal = { version = "0.58.0", features = [
     "services-fs",
     "services-http", # 只读，但也很好用了
     "services-s3",
@@ -417,7 +420,7 @@ mib-rs = "0.8"
 
 # domain/ai-ml
 agent-client-protocol = "2.0.0" # ACP 的服务端/客户端协议实现
-rmcp = { version = "3.0.0", features = ["server"] } # MCP 的服务端/客户端协议实现
+rmcp = { version = "3.1.0", features = ["server"] } # MCP 的服务端/客户端协议实现
 
 # domain-spider
 # scraper = "0.23"      # HTML/CSS 解析查询
@@ -437,7 +440,7 @@ email_address = "0.2.9"
 
 # domain/doc
 pulldown-cmark = "0.13.4"
-printpdf = "0.12.4"        # 比lopdf、pdf-writer更高层次的PDF生成库
+printpdf = "0.12.5"        # 比lopdf、pdf-writer更高层次的PDF生成库
 # 缺失docx生成
 
 # domain/ebpf
