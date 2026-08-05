@@ -15,9 +15,9 @@ platforms = [
 
 [dependencies]
 backon = "1.6.0"    # 重试，但似乎并无必要
-governor = "0.10.4" # 限流
-moka = "0.12.15"    # 缓存
-minijinja = { version = "2.21.0", features = [
+governor = "0.10.4" # 基于 GCRA 的in-process 限流
+moka = { version = "0.12.15", features = ["future"] }   # 缓存
+minijinja = { version = "2.22.0", features = [
     "json",
     "loader",
     "loop_controls",
@@ -45,7 +45,7 @@ proc-macro2 = "1.0"
 
 # std
 regex = "1.13.1"  # 正则正则表达式，不支持回溯
-base64 = "0.23.0" # Base64 编码/解码
+base64 = "0.23.1" # Base64 编码/解码
 hex = "0.4.3"     # Hex 编码/解码
 bytes = "1"       # 可复用的bytes，减少内存拷贝
 bitflags = "2.13.1"
@@ -79,7 +79,7 @@ walkdir = "2.5.0"  # 递归遍历目录
 tempfile = "3.27"  # 临时文件、内存文件
 which = "8.0.5"    # 类似 which 命令
 glob = "0.3.4"     # glob 模式匹配, 来自 rust 官方
-globset = "0.4.19" # 支持一组glob，来自 ripgrep
+globset = "0.4.20" # 支持一组glob，来自 ripgrep
 hostname = "0.4.2" # 获取主机名，零依赖
 chrono = { version = "0.4.45", default-features = false, features = [
     "serde",
@@ -156,7 +156,7 @@ uuid = { version = "1.24.0", features = [
 
 # data-excel
 calamine = { version = "0.36.1", features = ["dates"] }
-rust_xlsxwriter = { version = "0.97.0", features = [
+rust_xlsxwriter = { version = "0.97.1", features = [
     "chrono",
     "serde",
     # "polars",
@@ -165,7 +165,7 @@ rust_xlsxwriter = { version = "0.97.0", features = [
 # duckdb = { version = "1.10503.1", features = ["chrono", "bundled", "vtab-excel", "parquet"] }
 parquet = { version = "59.1.0", features = ["async", "json"]}
 # 暂不使用，Rust版本的API不稳定，且 MRSV 要求过高
-polars = { version = "0.54.4", features = [
+polars = { version = "0.55.1", features = [
     "lazy",
     # "sql", # 太重
     "random",
@@ -281,7 +281,7 @@ dotenvy = "0.15" # .env 文件支持
 dirs = "6.0.0" # XDG 目录标准
 notify-rust = "4.18.0" # 桌面通知
 # cli-gui
-open = "5.4.0" # 打开URI（轻量，无系统依赖）
+open = "5.4.1" # 打开URI（轻量，无系统依赖）
 arboard = "3.6.1" # 剪贴板
 rfd = { version = "0.17.2", default-features = false, features = [
     "xdg-portal",
@@ -318,6 +318,7 @@ listenfd = "1.0.2"
 tokio-cron-scheduler = { version = "0.15.1", features = [
     "signal",
 ] } # 定时/后台任务，考虑替换为 apalis ，但后者有些重了，不如自己写，或者更稳重的temporal或restate
+# 添加swagger支持，但 utoipa 结合axum既麻烦又问题多，维护状态也不佳
 utoipa = { version = "5.5.0", features = [
     "config",
     "axum_extras",
@@ -356,8 +357,8 @@ kube = { version = "4.2.0", features = ["runtime", "derive"] }
 k8s-openapi = { version = "0.28.0", features = ["latest", "schemars"] }
 
 # network
-ipnet = { version = "2.12.0", features = ["serde"] } # IP网络集合表示
-prefix-trie = "0.10.1"
+ipnet = { version = "2.12.1", features = ["serde"] } # IP网络集合表示
+prefix-trie = "0.10.1" # 针对IP的前缀树，支持 IPv4/IPv6以及二者的混合
 mac_address = "1.1.8"
 
 # OS
@@ -367,7 +368,7 @@ sysinfo = "0.39.6"
 rustix = "1.1.4"
 
 # cloud-native
-opendal = { version = "0.58.0", features = [
+opendal = { version = "0.58.1", features = [
     "services-fs",
     "services-http", # 只读，但也很好用了
     "services-s3",
@@ -396,7 +397,7 @@ secrecy = { version = "0.10.3", features = ["serde"] } # 和密码无关，只�
 
 # string
 strsim = "0.11.1" # 字符串相似度，可用于告警相似度
-similar = "3.1.1" # 序列和文本diff算法
+similar = "3.1.2" # 序列和文本diff算法
 
 # infra
 mimalloc = "0.1.52"                                  # 内存分配器，性能更好，尤其要替换musl的默认内存分配器
@@ -408,6 +409,7 @@ rustls = { version = "*" }
 # top
 
 # domain/ops
+# FIX: 强制依赖ring，已提PR允许aws-lc-rs
 async-ssh2-tokio = "0.13.0"                            # SSH 客户端，依赖 russh
 expectrl = { version = "0.9.0", features = ["async"] } # 小型库，暂时用不到
 shlex = "2.0.1"                                        # shell 字符串转义
@@ -420,7 +422,7 @@ mib-rs = "0.8"
 
 # domain/ai-ml
 agent-client-protocol = "2.0.0" # ACP 的服务端/客户端协议实现
-rmcp = { version = "3.1.0", features = ["server"] } # MCP 的服务端/客户端协议实现
+rmcp = { version = "3.1.1", features = ["server"] } # MCP 的服务端/客户端协议实现
 
 # domain-spider
 # scraper = "0.23"      # HTML/CSS 解析查询
@@ -429,7 +431,7 @@ rmcp = { version = "3.1.0", features = ["server"] } # MCP 的服务端/客户端
 # chromiumoxide = { version = "0.9.1" } # CDP API
 
 # domain-email
-lettre = { version = "0.11.22", default-features = false, features = [
+lettre = { version = "0.11.23", default-features = false, features = [
     "tokio1",
     "builder",
     "hostname",
