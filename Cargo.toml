@@ -16,8 +16,8 @@ platforms = [
 [dependencies]
 backon = "1.6.0"    # 重试，但似乎并无必要
 governor = "0.10.4" # 基于 GCRA 的in-process 限流
-moka = { version = "0.12.15", features = ["future"] }   # 缓存
-minijinja = { version = "2.23.0", features = [
+moka = { version = "0.12.16", features = ["future"] }   # 缓存
+minijinja = { version = "2.24.0", features = [
     "json",
     "loader",
     "loop_controls",
@@ -66,7 +66,7 @@ dashmap = { version = "6.2.1", features = ["serde"] } # 并发 Map
 parking_lot = "0.12.5" # 锁相关同步原语，替代标准化，占用更小、性能更好，没有锁中毒
 
 # std/async
-futures = "0.3.33"
+futures = "0.3.34"
 async-trait = "0.1.92"
 trait-variant = "0.1.3"
 tokio = { version = "1.53.1", features = ["full"] }
@@ -147,7 +147,7 @@ toml_edit = "0.25.13"
 schemars = "1.2.2"                                        # 生成 JSON Schema
 validator = { version = "0.21.0", features = ["derive"] }
 # data-type
-uuid = { version = "1.24.0", features = [
+uuid = { version = "1.24.1", features = [
     "v4",                # 随机 UUID
     "v7",                # 随时间递增 UUID
     "macro-diagnostics",
@@ -157,7 +157,7 @@ uuid = { version = "1.24.0", features = [
 
 # data-excel
 calamine = { version = "0.36.1", features = ["dates"] }
-rust_xlsxwriter = { version = "0.97.1", features = [
+rust_xlsxwriter = { version = "0.98.1", features = [
     "chrono",
     "serde",
     # "polars",
@@ -210,7 +210,7 @@ polars = { version = "0.55.2", features = [
 # http
 http = "1.5.0"
 http-body = "1.1.0"  # HTTP Body 异步stream
-http-body-util = "0.1.4"
+http-body-util = "0.1.5"
 url = "2.5.8" # URL 解析
 serde_qs = "1.1.3" # 支持深层嵌套的 serde_urlencoded，兼容前端qs库格式 (serde_qs > serde_html_form > serde_urlencoded)
 uri-template = { version = "0.1.0", features = ["macros"] }
@@ -253,7 +253,7 @@ sqlx = { version = "0.9.0", features = [
 jiff-sqlx = "0.2.0" # jiff 的 SQLx 适配器，提供 jiff::DateTime 与 SQLx 的互操作性
 # toasty = { version = "0.7.0", features = ["jiff","sqlite", "mysql", "postgresql"] } # 仍不成熟，查询、迁移功能缺失
 # turso = "0.6.1" # SQLite 兼容性还是不行，观察
-redis = { version = "1.5.0", features = [
+redis = { version = "1.6.0", features = [
     "tokio-rustls-comp",
     "cluster-async",
     "connection-manager",
@@ -307,7 +307,7 @@ axum-extra = { version = "0.12.6", features = [
     "typed-routing",
     "typed-header",
 ] }
-axum_typed_multipart = "0.16.6"
+axum_typed_multipart = "0.16.7"
 axum-valid = "0.25.0"
 tower = { version = "0.5", features = ["full"] }
 tower-http = { version = "0.7.0", features = ["full"] }
@@ -332,8 +332,11 @@ utoipa-axum = "0.2"
 utoipa-swagger-ui = { version = "9.0.2", features = ["axum", "vendored"] }
 slug = "0.1.6"  # slugify a string
 # durable execution engine
-# 暂不考虑引入额外的中间件
-restate-sdk = "0.11.0"
+# 暂不考虑引入额外的中间件,
+# bullmq, dbos, pgmq,
+# 自己实现(listen/notify, select for update skip locked)
+# 都是可考虑项
+restate-sdk = "0.11.1" # 很吸引人，但是前景不明
 # resonate-sdk = "0.6.0"
 # apalis = { version = "1.0.0-rc.9" , features = [
 #     "retry",
@@ -415,11 +418,11 @@ async-ssh2-tokio = "0.13.0"                            # SSH 客户端，依赖 
 expectrl = { version = "0.9.0", features = ["async"] } # 小型库，暂时用不到
 shlex = "2.0.1"                                        # shell 字符串转义
 strip-ansi-escapes = "0.2.1"                           # shell ansi控制字符剥离
-ansi-to-html = "0.2.3"                                 # shell ansi控制字符转html
+ansi-to-html = "0.2.4"                                 # shell ansi控制字符转html
 
 # domain/snmp # SNMP v3 安全认证部分完整实现过于复杂
 snmp2 = { version = "0.5.2", features = ["full"] }
-mib-rs = "0.8"
+mib-rs = "0.9.0"
 
 # domain/ai-ml
 agent-client-protocol = "2.0.0" # ACP 的服务端/客户端协议实现
