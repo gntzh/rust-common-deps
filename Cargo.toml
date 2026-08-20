@@ -157,7 +157,7 @@ uuid = { version = "1.24.1", features = [
 
 # data-excel
 calamine = { version = "0.36.1", features = ["dates"] }
-rust_xlsxwriter = { version = "0.98.1", features = [
+rust_xlsxwriter = { version = "0.98.2", features = [
     "chrono",
     "serde",
     # "polars",
@@ -401,7 +401,7 @@ secrecy = { version = "0.10.3", features = ["serde"] } # 和密码无关，只�
 
 # string
 strsim = "0.11.1" # 字符串相似度，可用于告警相似度
-similar = "3.1.2" # 序列和文本diff算法
+similar = "3.2.0" # 序列和文本diff算法
 
 # infra
 mimalloc = "0.1.52"                                  # 内存分配器，性能更好，尤其要替换musl的默认内存分配器
@@ -422,11 +422,11 @@ ansi-to-html = "0.2.4"                                 # shell ansi控制字符�
 
 # domain/snmp # SNMP v3 安全认证部分完整实现过于复杂
 snmp2 = { version = "0.5.2", features = ["full"] }
-mib-rs = "0.9.0"
+mib-rs = "0.10.0"
 
-# domain/ai-ml
+# domain/ai-ml-llm
 agent-client-protocol = "2.0.0" # ACP 的服务端/客户端协议实现
-rmcp = { version = "3.1.2", features = ["server"] } # MCP 的服务端/客户端协议实现
+rmcp = { version = "3.1.4", features = ["server"] } # MCP 的服务端/客户端协议实现
 
 # domain-spider
 # scraper = "0.23"      # HTML/CSS 解析查询
@@ -446,7 +446,7 @@ email_address = "0.2.9"
 
 # domain/doc
 pulldown-cmark = "0.13.4"
-printpdf = "0.12.5"        # 比lopdf、pdf-writer更高层次的PDF生成库
+printpdf = "0.12.6"        # 比lopdf、pdf-writer更高层次的PDF生成库
 # 缺失docx生成
 
 # domain/ebpf
