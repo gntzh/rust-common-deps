@@ -57,7 +57,7 @@ either = "1.18.0"
 itertools = "0.15.0"
 indexmap = "2.14.1" # 有序 map/set
 arrayvec = { version = "0.7.8" , features = ["serde"] } # 固定容量的 Vec，放在栈上，适合限制最大容量的场景
-smallvec = {version = "1.15.2", features = ["serde"] }  # 小容量优化的 Vec, 小于指定容量时放在栈上，超过时放在堆上，适合多数时候小数组、偶尔大数组的场景
+smallvec = { version = ">=1.15.0", features = ["serde"] } # 小容量优化的 Vec, 小于指定容量时放在栈上，超过时放在堆上，适合多数时候小数组、偶尔大数组的场景
 bimap = { version = "0.6.3", features = ["serde"] }     # 双向 map ，维护状态不佳，但没更好选择
 
 # std/concurrent
@@ -92,7 +92,7 @@ jiff = "0.2.35"    # 现代日期库，替代 chrono
 
 # std/num
 num-traits = "0.2.19"
-rust_decimal = { version = "1.42.1", features = ["macros"] }
+rust_decimal = { version = "1.43.0", features = ["macros"] }
 
 # std/error
 anyhow = "1.0.104"
@@ -147,7 +147,7 @@ json-patch = "4.2.0"
 serde_yaml_ng = "0.10.0"                                  # 维护状态不佳，但是运维中还是有很多 yaml 配置
 quick-xml = { version = "0.42.0", features = ["encoding", "serialize"] }
 csv = "1.4.0"
-toml = { version = "1.1.4", features = ["preserve_order"] }
+toml = { version = "1.1.5", features = ["preserve_order"] }
 toml_edit = "0.25.13"
 schemars = "1.2.2"                                        # 生成 JSON Schema
 validator = { version = "0.21.0", features = ["derive"] }
@@ -169,7 +169,7 @@ rust_xlsxwriter = { version = "0.99.0", features = [
 ] }
 # 问题是这是一个大型的C++依赖，不好静态编译到musl
 # duckdb = { version = "1.10503.1", features = ["chrono", "bundled", "vtab-excel", "parquet"] }
-parquet = { version = "59.2.0", features = ["async", "json"]}
+parquet = { version = "59.3.0", features = ["async", "json"]}
 # 暂不使用，Rust版本的API不稳定，且 MRSV 要求过高
 polars = { version = "0.55.2", features = [
     "lazy",
@@ -287,7 +287,7 @@ dotenvy = "0.15" # .env 文件支持
 dirs = "6.0.0" # XDG 目录标准
 notify-rust = "4.18.0" # 桌面通知
 # cli-gui
-open = "5.4.2" # 打开URI（轻量，无系统依赖）
+open = "5.4.3" # 打开URI（轻量，无系统依赖）
 arboard = "3.6.1" # 剪贴板
 rfd = { version = "0.17.2", default-features = false, features = [
     "xdg-portal",
@@ -315,7 +315,7 @@ axum-extra = { version = "0.12.6", features = [
 axum_typed_multipart = "0.16.7"
 axum-valid = "0.25.0"
 tower = { version = "0.5", features = ["full"] }
-tower-http = { version = "0.7.0", features = ["full"] }
+tower-http = { version = "0.7.1", features = ["full"] }
 # axum-login = "0.17"
 # tower-sessions = "0.14"
 # tower-sessions-redis-store = "0.16"
@@ -343,7 +343,7 @@ slug = "0.1.6"  # slugify a string
 # 都是可考虑项
 # restate 很吸引人，但是前景不明
 # 缺少内置支持的 cron https://github.com/restatedev/restate/issues/12
-restate-sdk = "0.11.1"
+restate-sdk = { version = "0.12.0", features = ["reqwest-client"] }
 # resonate-sdk = "0.6.0"
 # apalis = { version = "1.0.0-rc.9" , features = [
 #     "retry",
@@ -400,7 +400,7 @@ aes-gcm = "0.11.1"  # AES GCM 模式，更安全、更现代
 ctr = "0.10.1"      # AES CTR 模式，遗留，使用太多
 cbc = "0.2.1"       # AES CBC 模式，遗留，使用太多
 cfb-mode = "0.9.1"       # AES CFB 模式，遗留，使用太多(SNMP)
-blowfish = "0.10.0" # Blowfish 加密算法，遗留，使用太多
+# blowfish = "0.10.0" # Blowfish 加密算法，遗留，使用太多
 # crypto/password
 password-auth = "1.0.0"
 argon2 = "0.6.0"                                         # KDF 算法
@@ -433,7 +433,7 @@ mib-rs = "0.10.0"
 
 # domain/ai-ml-llm
 agent-client-protocol = "2.0.0" # ACP 的服务端/客户端协议实现
-rmcp = { version = "3.1.4", features = ["server"] } # MCP 的服务端/客户端协议实现
+rmcp = { version = "3.2.0", features = ["server"] } # MCP 的服务端/客户端协议实现
 
 # domain-spider
 # scraper = "0.23"      # HTML/CSS 解析查询
