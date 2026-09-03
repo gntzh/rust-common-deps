@@ -109,16 +109,17 @@ tracing-subscriber = { version = "0.3", features = [
 tracing-appender = "0.2.5"
 tracing-error = "0.2.1"
 # prometheus = "0.14.0"
-opentelemetry = "0.32.0"                          # OpenTelemetry 公共依赖
-opentelemetry_sdk = "0.32.1"                      # OpenTelemetry SDK: Tracing/Log/Metrics
-opentelemetry-semantic-conventions = "0.32.1"     # OpenTelemetry 语义约定
-opentelemetry-stdout = "0.32.0"                   # OpenTelemetry 直接输出到 stdout，测试使用
-opentelemetry-otlp = {version = "0.32.0", features = ["grpc-tonic"]} # OpenTelemetry OTLP Exporter 实现，对接标准的 OpenTelemetry Collector，支持 gRPC、HTTP/JSON、HTTP/Protobuf
+opentelemetry = "0.32.0"                          # OTel 公共依赖
+opentelemetry_sdk = "0.32.1"                      # OTel SDK: Tracing/Log/Metrics
+opentelemetry-semantic-conventions = "0.32.1"     # OTel 语义约定
+opentelemetry-stdout = "0.32.0"                   # OTel 直接输出到 stdout，测试使用
+opentelemetry-otlp = {version = "0.32.0", features = ["grpc-tonic"]} # OTel OTLP Exporter 实现，对接标准的 OpenTelemetry Collector，支持 gRPC、HTTP/JSON、HTTP/Protobuf
 
-opentelemetry-instrumentation-tower = "0.18.0" # 集成 tower
+opentelemetry-resource-detectors = "=0.12.0"      # OTel Os、Proc、Container 环境的资源识别
+opentelemetry-instrumentation-tower = "0.18.0"    # 集成 tower
 
-opentelemetry-appender-tracing = "0.32.0"                               # OpenTelemetry 与 tracing 集成，把 tracing的event转换为OTel的LogRecords
-tracing-opentelemetry = { version = "0.33.0", features = ["metrics"]  } # OpenTelemetry 与 tracing 集成，把 tracing的span转换为OTel的Span
+opentelemetry-appender-tracing = "0.32.0"                               # OTel 与 tracing 集成，把 tracing的event转换为OTel的LogRecords
+tracing-opentelemetry = { version = "0.33.0", features = ["metrics"]  } # OTel 与 tracing 集成，把 tracing的span转换为OTel的Span
 
 # std/zip
 flate2 = "1.1.10"  # 来自Rust官方，支持gzip、deflate、zip，有多个后端，默认是rust实现
