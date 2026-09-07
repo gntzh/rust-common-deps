@@ -41,7 +41,7 @@ dyn-clone = "1.0.20"                                  # trait object 的 clone
 static_assertions = "1.1.0"
 
 # utils/macro
-syn = "3.0.4"
+syn = "3.0.5"
 quote = "1.0"
 proc-macro2 = "1.0"
 
@@ -55,7 +55,7 @@ bitflags = "2.13.1"
 # std/collections
 either = "1.18.0"
 itertools = "0.15.0"
-indexmap = "2.14.1" # 有序 map/set
+indexmap = "2.14.2" # 有序 map/set
 arrayvec = { version = "0.7.8" , features = ["serde"] } # 固定容量的 Vec，放在栈上，适合限制最大容量的场景
 smallvec = { version = ">=1.15.0", features = ["serde"] } # 小容量优化的 Vec, 小于指定容量时放在栈上，超过时放在堆上，适合多数时候小数组、偶尔大数组的场景
 bimap = { version = "0.6.3", features = ["serde"] }     # 双向 map ，维护状态不佳，但没更好选择
@@ -124,7 +124,7 @@ tracing-opentelemetry = { version = "0.33.0", features = ["metrics"]  } # OTel �
 # std/zip
 flate2 = "1.1.10"  # 来自Rust官方，支持gzip、deflate、zip，有多个后端，默认是rust实现
 tar = "0.4.46"    # rust 实现
-zstd = "0.13.3"   # rust 实现
+zstd = "0.14.0"   # rust 实现
 
 # std/build
 shadow-rs = { version = "2.0.0", default-features = false } # 构建时信息，默认依赖git、time
@@ -259,7 +259,7 @@ sqlx = { version = "0.9.0", features = [
 jiff-sqlx = "0.2.0" # jiff 的 SQLx 适配器，提供 jiff::DateTime 与 SQLx 的互操作性
 # toasty = { version = "0.7.0", features = ["jiff","sqlite", "mysql", "postgresql"] } # 仍不成熟，查询、迁移功能缺失
 # turso = "0.6.1" # SQLite 兼容性还是不行，观察
-redis = { version = "1.6.0", features = [
+redis = { version = "1.7.0", features = [
     "tokio-rustls-comp",
     "cluster-async",
     "connection-manager",
@@ -275,7 +275,7 @@ clap-verbosity-flag = { version = "3.0.4", features = [
 ] } # clap: `-vvv`，包括对日志输出级别的控制
 clio = { version = "0.3.5", features = ["clap-parse"] } # clap: 统一文件参数，包括 `-`
 owo-colors = { version = "4.4.0", features = ["supports-colors"] } # 彩色输出
-tabled = { version = "0.21.0", features = ["ansi"] } # 打印表格样式
+tabled = { version = "0.22.0", features = ["ansi"] } # 打印表格样式
 indicatif = "0.18.6" # 进度条
 dialoguer = "0.12.0" # prompt，console/indicatif 的姊妹库，但风格并不喜欢
 # cliclack = "0.3.6" # prompt，不额外引入依赖了，还是用 dialoguer
@@ -285,7 +285,7 @@ figment = { version = "0.10", features = [
     "toml",
 ] } # 配置管理，config-rs 维护状态不佳
 dotenvy = "0.15" # .env 文件支持
-dirs = "6.0.0" # XDG 目录标准
+dirs = "7.0.0"   # XDG 目录标准
 notify-rust = "4.18.0" # 桌面通知
 # cli-gui
 open = "5.4.3" # 打开URI（轻量，无系统依赖）
@@ -345,6 +345,8 @@ slug = "0.1.6"  # slugify a string
 # restate 很吸引人，但是前景不明
 # 缺少内置支持的 cron https://github.com/restatedev/restate/issues/12
 restate-sdk = { version = "0.12.0", features = ["reqwest-client"] }
+croner = { version = "4.0.0", features = ["serde"] }
+
 # resonate-sdk = "0.6.0"
 # apalis = { version = "1.0.0-rc.9" , features = [
 #     "retry",
@@ -369,7 +371,7 @@ kube = { version = "4.2.0", features = ["runtime", "derive"] }
 k8s-openapi = { version = "0.28.0", features = ["latest", "schemars"] }
 
 # network
-ipnet = { version = "2.12.1", features = ["serde"] } # IP网络集合表示
+ipnet = { version = "2.12.2", features = ["serde"] } # IP网络集合表示
 prefix-trie = "0.10.1" # 针对IP的前缀树，支持 IPv4/IPv6以及二者的混合
 mac_address = "1.1.8"
 
@@ -380,7 +382,7 @@ sysinfo = "0.39.6"
 rustix = "1.1.4"
 
 # cloud-native
-opendal = { version = "0.58.2", features = [
+opendal = { version = "0.59.0", features = [
     "services-fs",
     "services-http", # 只读，但也很好用了
     "services-s3",
@@ -433,7 +435,7 @@ snmp2 = { version = "0.5.2", features = ["full"] }
 mib-rs = "0.10.0"
 
 # domain/ai-ml-llm
-agent-client-protocol = "2.0.0" # ACP 的服务端/客户端协议实现
+agent-client-protocol = "2.1.0" # ACP 的服务端/客户端协议实现
 rmcp = { version = "3.2.0", features = ["server"] } # MCP 的服务端/客户端协议实现
 
 # domain-spider
@@ -454,7 +456,7 @@ email_address = "0.2.9"
 
 # domain/doc
 pulldown-cmark = "0.13.4"
-printpdf = "0.12.7"        # 比lopdf、pdf-writer更高层次的PDF生成库
+printpdf = "0.12.8"        # 比lopdf、pdf-writer更高层次的PDF生成库
 # 缺失docx生成
 
 # domain/ebpf
