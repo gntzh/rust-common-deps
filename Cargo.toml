@@ -2,7 +2,7 @@
 name = "rust-common-deps"
 version = "0.1.0"
 edition = "2024"
-rust-version = "1.95.0"                  # MSRV
+rust-version = "1.96.0"                  # MSRV
 description = "Rust common dependencies"
 
 [package.metadata.vendor-filter]
@@ -14,8 +14,8 @@ platforms = [
 ]
 
 [dependencies]
-backon = "1.6.0"    # 重试，但似乎并无必要
-governor = "0.10.4" # 基于 GCRA 的in-process 限流
+backon = "1.6.0"       # 重试，但似乎并无必要
+governor = "0.10.4"    # 基于 GCRA 的in-process 限流
 open-feature = "0.3.0" # 
 moka = { version = "0.12.16", features = ["future"] }   # 缓存
 minijinja = { version = "2.24.0", features = [
@@ -27,7 +27,7 @@ nom = "8.0.0" # parser combinator，解析器组合器，使用最多
 notify = "8.2.0"
 # deadpool = { version = "0.13.1" } # 池管理，更适合数据库这种长期正常的连接
 # 嵌入式搅拌方案，js比lua更适用，虽然方案不如mlua成熟
-rquickjs ={ version = "0.13.0", features = ["macro", "indexmap"]}
+rquickjs ={ version = "0.14.0", features = ["macro", "indexmap"]}
 
 # utils/lang
 delegate = "0.13.5"                                   # 通过宏实现方法委托
@@ -41,7 +41,7 @@ dyn-clone = "1.0.20"                                  # trait object 的 clone
 static_assertions = "1.1.0"
 
 # utils/macro
-syn = "3.0.5"
+syn = "3.0.6"
 quote = "1.0"
 proc-macro2 = "1.0"
 
@@ -109,16 +109,16 @@ tracing-subscriber = { version = "0.3", features = [
 tracing-appender = "0.2.5"
 tracing-error = "0.2.1"
 # prometheus = "0.14.0"
-opentelemetry = "0.32.0"                          # OTel 公共依赖
-opentelemetry_sdk = "0.32.1"                      # OTel SDK: Tracing/Log/Metrics
-opentelemetry-semantic-conventions = "0.32.1"     # OTel 语义约定
-opentelemetry-stdout = "0.32.0"                   # OTel 直接输出到 stdout，测试使用
-opentelemetry-otlp = {version = "0.32.0", features = ["grpc-tonic"]} # OTel OTLP Exporter 实现，对接标准的 OpenTelemetry Collector，支持 gRPC、HTTP/JSON、HTTP/Protobuf
+opentelemetry = "0.33.0"                          # OTel 公共依赖
+opentelemetry_sdk = "0.33.0"                      # OTel SDK: Tracing/Log/Metrics
+opentelemetry-semantic-conventions = "0.33.0"     # OTel 语义约定
+opentelemetry-stdout = "0.33.0"                   # OTel 直接输出到 stdout，测试使用
+opentelemetry-otlp = {version = "0.33.0", features = ["grpc-tonic"]} # OTel OTLP Exporter 实现，对接标准的 OpenTelemetry Collector，支持 gRPC、HTTP/JSON、HTTP/Protobuf
 
 opentelemetry-resource-detectors = "=0.12.0"      # OTel Os、Proc、Container 环境的资源识别
 opentelemetry-instrumentation-tower = "0.18.0"    # 集成 tower
 
-opentelemetry-appender-tracing = "0.32.0"                               # OTel 与 tracing 集成，把 tracing的event转换为OTel的LogRecords
+opentelemetry-appender-tracing = "0.33.0"                               # OTel 与 tracing 集成，把 tracing的event转换为OTel的LogRecords
 tracing-opentelemetry = { version = "0.33.0", features = ["metrics"]  } # OTel 与 tracing 集成，把 tracing的span转换为OTel的Span
 
 # std/zip
@@ -163,14 +163,14 @@ uuid = { version = "1.26.1", features = [
 
 # data-excel
 calamine = { version = "0.36.1", features = ["dates"] }
-rust_xlsxwriter = { version = "0.99.0", features = [
+rust_xlsxwriter = { version = "0.99.1", features = [
     "chrono",
     "serde",
     # "polars",
 ] }
 # 问题是这是一个大型的C++依赖，不好静态编译到musl
 # duckdb = { version = "1.10503.1", features = ["chrono", "bundled", "vtab-excel", "parquet"] }
-parquet = { version = "59.3.0", features = ["async", "json"]}
+parquet = { version = "60.0.0", features = ["async", "json"]}
 # 暂不使用，Rust版本的API不稳定，且 MRSV 要求过高
 polars = { version = "0.55.2", features = [
     "lazy",
@@ -222,6 +222,7 @@ serde_qs = "1.1.3" # 支持深层嵌套的 serde_urlencoded，兼容前端qs库�
 uri-template = { version = "0.1.0", features = ["macros"] }
 percent-encoding = "2.3.2" # 百分号编码/解码
 mime_guess = "2.0.5"
+# 最流行的 HTTP 客户端库，但是缺少中间件机制
 reqwest = { version = "0.13.5", features = [
     "blocking",  # 同步 API
     "cookies",
@@ -267,8 +268,8 @@ redis = { version = "1.7.0", features = [
 ] } # 官方、稳定1.0
 
 # cli
-clap = { version = "4.6.6", features = ["derive", "env", "wrap_help"] }
-clap_complete = "4.6.9" # clap: 补全
+clap = { version = "4.6.7", features = ["derive", "env", "wrap_help"] }
+clap_complete = "4.6.11" # clap: 补全
 colorchoice-clap = "1.0.8" # clap: 颜色全局控制参数，常见库中颜色输出均可统一控制，其实修改的是colorchoice库中的约定
 clap-verbosity-flag = { version = "3.0.4", features = [
     "tracing",
@@ -300,6 +301,11 @@ ratatui = "0.30.2"   # TUI
 crossterm = "0.29.0" # ratatui 的后端
 
 # web
+# 缺失诸多功能，尤其是OpenAPI这类易用性和框架高耦合的，但没办法
+# salvo 集成太多且很多集成过于简陋; 不够成熟
+# actix-web 宏、和Tokio异步生态不是很融合
+# warp 和axum定位冲突了
+# rocket 宏、维护状态不佳
 axum = { version = "0.8.9", features = ["multipart", "ws"] }
 axum-extra = { version = "0.12.6", features = [
     "attachment",
@@ -320,7 +326,7 @@ tower-http = { version = "0.7.1", features = ["full"] }
 # axum-login = "0.17"
 # tower-sessions = "0.14"
 # tower-sessions-redis-store = "0.16"
-jsonwebtoken = { version = "11.0.0", features = ["rust_crypto"] }
+jsonwebtoken = { version = "11.1.0", features = ["rust_crypto"] }
 listenfd = "1.0.2"
 tokio-cron-scheduler = { version = "0.15.1", features = [
     "signal",
@@ -339,11 +345,18 @@ utoipa-swagger-ui = { version = "9.0.2", features = ["axum", "vendored"] }
 slug = "0.1.6"  # slugify a string
 # durable execution engine
 # 暂不考虑引入额外的中间件,
-# bullmq, dbos, pgmq,
-# 自己实现(listen/notify, select for update skip locked)
+# * bullmq 很不错，还有第三方的UI,是celery作业队列很好的替代,但相比DE还是缺失了太多
+# * dbos 不支持Rust
+# * pgmq pg扩展有运维要求
+# * 自己实现(listen/notify, select for update skip locked)
 # 都是可考虑项
 # restate 很吸引人，但是前景不明
-# 缺少内置支持的 cron https://github.com/restatedev/restate/issues/12
+# * 重试策略
+# * 幂等，防止重复执行
+# * 分布式状态
+# 也有些小问题
+# * sdk不支持 context propagation https://github.com/restatedev/sdk-rust/issues/64
+# * 缺少内置支持的 cron https://github.com/restatedev/restate/issues/12
 restate-sdk = { version = "0.12.0", features = ["reqwest-client"] }
 croner = { version = "4.0.0", features = ["serde"] }
 
@@ -379,14 +392,14 @@ mac_address = "1.1.8"
 sysinfo = "0.39.6"
 # unix
 # nix = "0.31.1"
-rustix = "1.1.4"
+rustix = "1.1.5"
 
 # cloud-native
-opendal = { version = "0.59.1", features = [
+opendal = { version = "0.59.2", features = [
     "services-fs",
     "services-http", # 只读，但也很好用了
     "services-s3",
-    "services-obs", # 华为 OBS
+    "services-obs",  # 华为 OBS
     # "services-sftp", #目前依赖openssh，不使用
 ] }
 
@@ -402,8 +415,8 @@ hmac = "0.13.0" # Hash-MAC
 aes-gcm = "0.11.1"  # AES GCM 模式，更安全、更现代
 ctr = "0.10.1"      # AES CTR 模式，遗留，使用太多
 cbc = "0.2.1"       # AES CBC 模式，遗留，使用太多
-cfb-mode = "0.9.1"       # AES CFB 模式，遗留，使用太多(SNMP)
-# blowfish = "0.10.0" # Blowfish 加密算法，遗留，使用太多
+cfb-mode = "0.9.1"  # AES CFB 模式，遗留，使用太多(SNMP)
+# blowfish = "0.10.0" # Blowfish 加密算法，遗留
 # crypto/password
 password-auth = "1.0.0"
 argon2 = "0.6.0"                                         # KDF 算法
@@ -435,8 +448,8 @@ snmp2 = { version = "0.5.2", features = ["full"] }
 mib-rs = "0.10.0"
 
 # domain/ai-ml-llm
-agent-client-protocol = "2.1.0" # ACP 的服务端/客户端协议实现
-rmcp = { version = "3.3.0", features = ["server"] } # MCP 的服务端/客户端协议实现
+agent-client-protocol = "2.2.0" # ACP 的服务端/客户端协议实现
+rmcp = { version = "3.4.0", features = ["server"] } # MCP 的服务端/客户端协议实现
 
 # domain-spider
 # scraper = "0.23"      # HTML/CSS 解析查询
