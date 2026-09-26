@@ -143,9 +143,9 @@ serde_path_to_error = "0.1.20"                            # serde 路径错误�
 # data/json
 serde_json = "1.0"
 json-patch = "4.2.0"
-# jmespath = "0.5.0" # 查询比jsonpath更擅长，但是转换json的又远不如 jq/Jsonnet/Starlark/KCL/nickel
+# jmespath = "0.5.0" # 查询比jsonpath更擅长，但是转换json的又远不如 jq(jaq)/Jsonnet/Starlark/KCL/nickel
 
-yaml_serde = "0.10.7"                                  # 维护状态不佳，但是运维中还是有很多 yaml 配置
+yaml_serde = "0.10.7" # 原作者早就不再维护，目前是yaml官方接手维护
 quick-xml = { version = "0.42.0", features = ["encoding", "serialize"] }
 csv = "1.4.0"
 toml = { version = "1.1.6", features = ["preserve_order"] }
@@ -182,6 +182,7 @@ polars = { version = "0.55.2", features = [
     # data types
     "dtype-categorical",
     "dtype-struct",
+    "dtype-array",
     "dtype-decimal",
     # IO
     "json",           # JSON 序列化/反序列化
@@ -261,7 +262,7 @@ sqlx = { version = "0.9.0", features = [
 jiff-sqlx = "0.2.0" # jiff 的 SQLx 适配器，提供 jiff::DateTime 与 SQLx 的互操作性
 # toasty = { version = "0.7.0", features = ["jiff","sqlite", "mysql", "postgresql"] } # 仍不成熟，查询、迁移功能缺失
 # turso = "0.6.1" # SQLite 兼容性还是不行，观察
-redis = { version = "1.7.0", features = [
+redis = { version = "1.7.1", features = [
     "tokio-rustls-comp",
     "cluster-async",
     "connection-manager",
