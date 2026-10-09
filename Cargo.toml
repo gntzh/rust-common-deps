@@ -18,9 +18,8 @@ backon = "1.6.0"       # 重试，但似乎并无必要
 governor = "0.10.4"    # 基于 GCRA 的in-process 限流
 open-feature = "0.3.0" # 
 moka = { version = "0.12.16", features = ["future"] }   # 缓存
-minijinja = { version = "2.24.0", features = [
+minijinja = { version = "3.0.0", features = [
     "json",
-    "loader",
     "loop_controls",
 ] } # 模板引擎
 nom = "8.0.0" # parser combinator，解析器组合器，使用最多
@@ -148,8 +147,8 @@ json-patch = "4.2.0"
 yaml_serde = "0.10.7" # 原作者早就不再维护，目前是yaml官方接手维护
 quick-xml = { version = "0.42.0", features = ["encoding", "serialize"] }
 csv = "1.4.0"
-toml = { version = "1.1.6", features = ["preserve_order"] }
-toml_edit = "0.25.15"
+toml = { version = "1.1.8", features = ["preserve_order"] }
+toml_edit = "0.25.17"
 schemars = "1.2.2"                                        # 生成 JSON Schema
 validator = { version = "0.21.0", features = ["derive"] }
 # data-type
@@ -292,7 +291,7 @@ figment = { version = "0.10", features = [
 ] } # 配置管理，config-rs 维护状态不佳
 dotenvy = "0.15" # .env 文件支持
 dirs = "7.0.0"   # XDG 目录标准
-notify-rust = "4.18.1" # 桌面通知
+notify-rust = "4.18.2" # 桌面通知
 # cli-gui
 open = "5.4.4" # 打开URI（轻量，无系统依赖）
 arboard = "3.6.1" # 剪贴板
@@ -455,7 +454,7 @@ snmp2 = { version = "0.5.2", features = ["full"] }
 mib-rs = "0.10.0"
 
 # domain/ai-ml-llm
-agent-client-protocol = "3.1.0" # ACP 的服务端/客户端协议实现
+agent-client-protocol = "3.2.0" # ACP 的服务端/客户端协议实现
 rmcp = { version = "3.5.1", features = ["server"] } # MCP 的服务端/客户端协议实现
 
 # domain-spider
