@@ -26,7 +26,7 @@ nom = "8.0.0" # parser combinator，解析器组合器，使用最多
 notify = "8.2.0"
 # deadpool = { version = "0.13.1" } # 池管理，更适合数据库这种长期正常的连接
 # 嵌入式搅拌方案，js比lua更适用，虽然方案不如mlua成熟
-rquickjs ={ version = "0.14.0", features = ["macro", "indexmap"]}
+rquickjs = { version = "0.14.0", features = ["macro", "indexmap"] }
 
 # utils/lang
 delegate = "0.13.5"                                   # 通过宏实现方法委托
@@ -35,12 +35,12 @@ derive_more = { version = "2", features = ["full"] }  # 宏，简化常用 trait
 bon = "3.10.2"                                         # Builder Pattern 宏，支持函数参数的builder，很好用，但还不支持嵌套
 enum_dispatch = "0.3.13"                              # 相当于 Sealed Trait 的静态派发，但少用（少用宏、少用依赖）
 displaydoc = "0.2.7"                                  # 注释作为 Display
-indoc = "2.0.7"                                       # 宏，生成字符串去除前面的缩进
+indoc = "2.0.8"                                       # 宏，生成字符串去除前面的缩进
 dyn-clone = "1.0.20"                                  # trait object 的 clone
 static_assertions = "1.1.0"
 
 # utils/macro
-syn = "3.0.6"
+syn = "3.0.8"
 quote = "1.0"
 proc-macro2 = "1.0"
 
@@ -108,22 +108,22 @@ tracing-subscriber = { version = "0.3", features = [
 tracing-appender = "0.2.5"
 tracing-error = "0.2.1"
 # prometheus = "0.14.0"
-opentelemetry = "0.33.0"                          # OTel 公共依赖
-opentelemetry_sdk = "0.33.0"                      # OTel SDK: Tracing/Log/Metrics
-opentelemetry-semantic-conventions = "0.33.0"     # OTel 语义约定
-opentelemetry-stdout = "0.33.0"                   # OTel 直接输出到 stdout，测试使用
-opentelemetry-otlp = {version = "0.33.0", features = ["grpc-tonic"]} # OTel OTLP Exporter 实现，对接标准的 OpenTelemetry Collector，支持 gRPC、HTTP/JSON、HTTP/Protobuf
+opentelemetry = "0.33.1"                          # OTel 公共依赖
+opentelemetry_sdk = "0.33.1"                      # OTel SDK: Tracing/Log/Metrics
+opentelemetry-semantic-conventions = "0.33.1"     # OTel 语义约定
+opentelemetry-stdout = "0.33.1"                   # OTel 直接输出到 stdout，测试使用
+opentelemetry-otlp = {version = "0.33.1", features = ["grpc-tonic"]} # OTel OTLP Exporter 实现，对接标准的 OpenTelemetry Collector，支持 gRPC、HTTP/JSON、HTTP/Protobuf
 
 opentelemetry-resource-detectors = "0.13.0"       # OTel Os、Proc、Container 环境的资源识别
 opentelemetry-instrumentation-tower = "0.19.0"    # 集成 tower
 
-opentelemetry-appender-tracing = "0.33.0"                               # OTel 与 tracing 集成，把 tracing的event转换为OTel的LogRecords
+opentelemetry-appender-tracing = "0.33.1"                               # OTel 与 tracing 集成，把 tracing的event转换为OTel的LogRecords
 tracing-opentelemetry = { version = "0.34.0", features = ["metrics"]  } # OTel 与 tracing 集成，把 tracing的span转换为OTel的Span
 
 # std/zip
 flate2 = "1.1.10"  # 来自Rust官方，支持gzip、deflate、zip，有多个后端，默认是rust实现
 tar = "0.4.46"    # rust 实现
-zstd = "0.14.0"   # rust 实现
+zstd = "0.14.2"   # rust 实现
 
 # std/build
 shadow-rs = { version = "2.0.0", default-features = false } # 构建时信息，默认依赖git、time
@@ -152,7 +152,7 @@ toml_edit = "0.25.17"
 schemars = "1.2.2"                                        # 生成 JSON Schema
 validator = { version = "0.21.0", features = ["derive"] }
 # data-type
-uuid = { version = "1.27.0", features = [
+uuid = { version = "1.28.0", features = [
     "v4",                # 随机 UUID
     "v7",                # 随时间递增 UUID
     "macro-diagnostics",
@@ -162,7 +162,7 @@ uuid = { version = "1.27.0", features = [
 
 # data-excel
 # 支持读写 xlsx/xlsm，不是很成熟，但没其他选择了，暂仅用于合并两个excel文件
-umya-spreadsheet = "3.1.0"
+umya-spreadsheet = "3.1.1"
 # 只读绝大多数的excel文件，支持 xlsx/xlsm/xlsb/xls/xltx/xltm/ods/csv 等格式
 # 单只读数据，无法获取样式
 calamine = { version = "0.36.1", features = ["dates"] }
@@ -323,7 +323,7 @@ axum-extra = { version = "0.12.6", features = [
     "typed-routing",
     "typed-header",
 ] }
-axum_typed_multipart = "0.16.7"
+axum_typed_multipart = "0.16.8"
 axum-valid = "0.25.0"
 tower = { version = "0.5", features = ["full"] }
 tower-http = { version = "0.7.1", features = ["full"] }
@@ -351,7 +351,7 @@ slug = "0.1.6"  # slugify a string
 # 暂不考虑引入额外的中间件,
 # * bullmq 很不错，还有第三方的UI,是celery作业队列很好的替代,但相比DE还是缺失了太多
 # * dbos 不支持Rust
-# * pgmq pg扩展有运维要求
+# * pgmq pg扩展有运维要求, 如果可以结合 CNPG 可能还好: https://github.com/pgmq/pgmq/issues/456
 # * 自己实现(listen/notify, select for update skip locked)
 # 都是可考虑项
 # restate 很吸引人，但是前景不明
@@ -392,7 +392,7 @@ k8s-openapi = { version = "0.28.0", features = ["latest", "schemars"] }
 # network
 ipnet = { version = "2.12.2", features = ["serde"] } # IP网络集合表示
 prefix-trie = "0.10.1" # 针对IP的前缀树，支持 IPv4/IPv6以及二者的混合
-mac_address = "1.2.0"
+mac_address = "1.2.1"
 
 # OS
 sysinfo = "0.39.6"
@@ -406,7 +406,7 @@ opendal = { version = "0.59.4", features = [
     "services-http", # 只读，但也很好用了
     "services-s3",
     "services-obs",  # 华为 OBS
-    # "services-sftp", #目前依赖openssh，不使用
+    # "services-sftp", # 目前依赖openssh，不使用 https://github.com/apache/opendal/issues/7968
 ] }
 
 # crypto
@@ -454,8 +454,12 @@ snmp2 = { version = "0.5.2", features = ["full"] }
 mib-rs = "0.10.0"
 
 # domain/ai-ml-llm
-agent-client-protocol = "3.2.0" # ACP 的服务端/客户端协议实现
+agent-client-protocol = "3.3.0" # ACP 的服务端/客户端协议实现
 rmcp = { version = "3.5.1", features = ["server"] } # MCP 的服务端/客户端协议实现
+async-openai = { version = "0.42.2", features = [
+    "chat-completion-types",
+    "response-types",
+] } # OpenAI API 客户端，非官方实现
 
 # domain-spider
 # scraper = "0.23"      # HTML/CSS 解析查询
@@ -483,7 +487,7 @@ printpdf = "0.12.8"        # 比lopdf、pdf-writer更高层次的PDF生成库
 
 [dev-dependencies]
 test-log = { version = "0.2.21", features = ["trace"] } # 测试时捕获log输出
-proptest = "1.11.0"                                      # 属性测试
+proptest = "1.12.0"                                      # 属性测试
 sqlx-cli = { version = "0.9.0", features = ["postgres", "sqlite", "mysql", "completions", "sqlx-toml"] }
 # rustlings = "6.4"
 # systemfd = "0.4"
