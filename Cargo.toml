@@ -141,11 +141,12 @@ serde = { version = "1.0", features = ["derive"] }
 serde_with = { version = "3.24.0", features = ["json"] }
 serde_repr = "0.1.21"                                     # C-like 枚举的序列化，对于以数字表示的api好用
 serde_path_to_error = "0.1.20"                            # serde 路径错误定位
-schemars = "1.2.3"                                        # 生成 JSON Schema
 validator = { version = "0.21.0", features = ["derive"] } # 校验
 # data/json
 serde_json = { version = "1.0", features = ["indexmap", "preserve_order"] }
 json-patch = "4.2.0"
+schemars = "1.2.3"                                        # 生成 JSON Schema
+jsonschema = { version = "0.58.6", features = [] }        # JSON Schema 验证
 # jmespath = "0.5.0" # 查询比jsonpath更擅长，但是转换json的又远不如 jq(jaq)/Jsonnet/Starlark/KCL/nickel
 
 toml = { version = "1.1.8", features = ["preserve_order"] }
