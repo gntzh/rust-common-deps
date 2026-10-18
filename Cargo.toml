@@ -176,47 +176,50 @@ rust_xlsxwriter = { version = "0.100.0", features = [
 # 问题是这是一个大型的C++依赖，不好静态编译到musl
 # duckdb = { version = "1.10503.1", features = ["chrono", "bundled", "vtab-excel", "parquet"] }
 parquet = { version = "60.0.0", features = ["async", "json"]}
-# 暂不使用，Rust版本的API不稳定，且 MRSV 要求过高
-polars = { version = "0.55.2", features = [
-    "lazy",
-    # "sql", # 太重
-    "random",
-    "timezones",
-    "strings",
-    # data types
-    "dtype-categorical",
-    "dtype-struct",
-    "dtype-array",
-    "dtype-decimal",
-    # IO
-    "json",           # JSON 序列化/反序列化
-    "parquet",
-    "serde",
-    "serde-lazy",
-    # DataFrame operations
-    "asof_join",
-    "cross_join",
-    "partition_by",
-    "rows", # pivot and transpose
-    # Series/Expr operations
-    "abs",
-    "arg_where",
-    "cum_agg",
-    "diff",
-    "find_many",
-    "is_in",
-    "is_between",
-    "list_to_struct",
-    "list_sets",
-    "list_count",
-    "log",
-    "offset_by",
-    "pct_change",
-    "range",
-    "rolling_window",
-    "round_series",
-    "unique_counts",
-] }
+# 暂不使用
+# - Rust版本的API不稳定，且 MRSV 要求过高
+# - 依赖树巨大，编译缓慢
+# - 功能缺失
+# polars = { version = "0.55.2", features = [
+#     "lazy",
+#     # "sql", # 太重
+#     "random",
+#     "timezones",
+#     "strings",
+#     # data types
+#     "dtype-categorical",
+#     "dtype-struct",
+#     "dtype-array",
+#     "dtype-decimal",
+#     # IO
+#     "json",           # JSON 序列化/反序列化
+#     "parquet",
+#     "serde",
+#     "serde-lazy",
+#     # DataFrame operations
+#     "asof_join",
+#     "cross_join",
+#     "partition_by",
+#     "rows", # pivot and transpose
+#     # Series/Expr operations
+#     "abs",
+#     "arg_where",
+#     "cum_agg",
+#     "diff",
+#     "find_many",
+#     "is_in",
+#     "is_between",
+#     "list_to_struct",
+#     "list_sets",
+#     "list_count",
+#     "log",
+#     "offset_by",
+#     "pct_change",
+#     "range",
+#     "rolling_window",
+#     "round_series",
+#     "unique_counts",
+# ] }
 # polars-json = "0.52.0"
 
 # http
@@ -246,7 +249,7 @@ reqwest = { version = "0.13.5", features = [
 # reqwest-middleware = "0.5.0"
 # reqwest-retry = "0.9.0"
 # reqwest-tracing = "0.6.0"
-tokio-tungstenite = {version = "0.30.0", features = ["rustls-tls-webpki-roots"]}
+tokio-tungstenite = { version = "0.30.0", features = ["rustls-tls-webpki-roots"] }
 
 # HTTP: LB
 # pingora = { version = "0.6.0", features = ["proxy", "time", "lb", "proxy"]}
@@ -387,7 +390,7 @@ ldap3 = { version = "0.12.1", default-features = false, features = [
 tonic = "0.14.6"
 prost = "0.14.4"
 tonic-prost = "0.14.6"
-kube = { version = "4.2.0", features = ["runtime", "derive"] }
+kube = { version = "4.2.0", default-features = false, features = ["client", "aws-lc-rs", "rustls-tls", "runtime", "derive"] } # 默认依赖 ring
 k8s-openapi = { version = "0.28.0", features = ["latest", "schemars"] }
 
 # network
@@ -436,14 +439,15 @@ similar = "3.2.0" # 序列和文本diff算法
 mimalloc = "0.1.52"                                  # 内存分配器，性能更好，尤其要替换musl的默认内存分配器
 rustls = { version = "*" }
 # TLS加密库，目前尽量统一使用 aws-lc-rs, ring、openssl 尽量保证不依赖
-# ring = { version = "*" }                             # 目前作者将该库仍定位于实验品，不要直接依赖
+# ring = { version = "*" }                             # 一直定位于实验品，已停止维护
 # openssl = { version = "*", features = ["vendored"] }
 
 # top
 
 # domain/ops
 # FIX: 强制依赖ring，已提PR允许aws-lc-rs https://github.com/Miyoshi-Ryota/async-ssh2-tokio/pull/116
-async-ssh2-tokio = "0.13.0"                            # SSH 客户端，依赖 russh
+# async-ssh2-tokio = "0.13.0"                            # SSH 客户端，依赖 russh
+async-ssh2-tokio = { git = "https://github.com/gntzh/async-ssh2-tokio.git" }
 # expectrl = { version = "0.9.0", features = ["async"] } # expect-like执行交互式程序，主要局限于本地命令调用
 shlex = "2.0.1"                                        # shell 字符串转义
 strip-ansi-escapes = "0.2.1"                           # shell ansi控制字符剥离
@@ -488,17 +492,17 @@ printpdf = "0.12.8"        # 比lopdf、pdf-writer更高层次的PDF生成库
 [dev-dependencies]
 test-log = { version = "0.2.21", features = ["trace"] } # 测试时捕获log输出
 proptest = "1.12.0"                                      # 属性测试
-[dev-dependencies.sqlx-cli]
-version = "0.9.0"
-default-features = false
-features = ["postgres", "sqlite", "mysql", "completions", "sqlx-toml", "rustls"]
 # rustlings = "6.4"
 # systemfd = "0.4"
 # watchexec-cli
 # evcxr_repl = "0.19.0" # REPL
 # cargo-typify = "0.5.0"
 # bpf-linker
-topcoat-cli = "0.10.0"
+topcoat-cli = "0.10.0" # ureq 依赖 ring
+[dev-dependencies.sqlx-cli] # # rustls 依赖 ring，没提供 aws-lc-rs 选项
+version = "0.9.0"
+default-features = false
+features = ["postgres", "sqlite", "mysql", "completions", "sqlx-toml", "rustls"]
 
 [build-dependencies]
 shadow-rs = "*"
