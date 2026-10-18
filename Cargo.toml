@@ -2,7 +2,7 @@
 name = "rust-common-deps"
 version = "0.1.0"
 edition = "2024"
-rust-version = "1.96.0"                  # MSRV
+rust-version = "1.96.0" # MSRV
 description = "Rust common dependencies"
 
 [package.metadata.vendor-filter]
@@ -18,7 +18,7 @@ backon = "1.6.0"       # 重试，但似乎并无必要
 governor = "0.10.4"    # 基于 GCRA 的in-process 限流
 open-feature = "0.3.0" # 
 moka = { version = "0.12.16", features = ["future"] }   # 缓存
-minijinja = { version = "3.0.0", features = [
+minijinja = { version = "3.0.1", features = [
     "json",
     "loop_controls",
 ] } # 模板引擎
@@ -32,7 +32,7 @@ rquickjs = { version = "0.14.0", features = ["macro", "indexmap"] }
 delegate = "0.13.5"                                   # 通过宏实现方法委托
 strum = { version = "0.28.0", features = ["derive"] } # Enum 属性、方法扩展
 derive_more = { version = "2", features = ["full"] }  # 宏，简化常用 trait 派生，尤其适合在 newtype pattern
-bon = "3.10.2"                                         # Builder Pattern 宏，支持函数参数的builder，很好用，但还不支持嵌套
+bon = "3.10.2"                                        # Builder Pattern 宏，支持函数参数的builder，很好用，但还不支持嵌套, 编译太慢
 enum_dispatch = "0.3.13"                              # 相当于 Sealed Trait 的静态派发，但少用（少用宏、少用依赖）
 displaydoc = "0.2.7"                                  # 注释作为 Display
 indoc = "2.0.8"                                       # 宏，生成字符串去除前面的缩进
@@ -40,7 +40,6 @@ dyn-clone = "1.0.20"                                  # trait object 的 clone
 static_assertions = "1.1.0"
 
 # utils/macro
-syn = "3.0.9"
 quote = "1.0"
 proc-macro2 = "1.0"
 
@@ -54,7 +53,7 @@ bitflags = "2.13.2"
 # std/collections
 either = "1.19.0"
 itertools = "0.15.0"
-equivalent = "1.0.2" # map 类collections的trait
+equivalent = "1.0.3" # map 类collections的trait
 indexmap = "2.14.2"  # 有序 map/set
 arrayvec = { version = "0.7.8" , features = ["serde"] } # 固定容量的 Vec，放在栈上，适合限制最大容量的场景
 smallvec = { version = ">=1.15.0", features = ["serde"] } # 小容量优化的 Vec, 小于指定容量时放在栈上，超过时放在堆上，适合多数时候小数组、偶尔大数组的场景
@@ -62,15 +61,15 @@ bimap = { version = "0.6.3", features = ["serde"] }     # 双向 map ，维护�
 
 # std/concurrent
 rayon = "1.12"
-arc-swap = "1.9.2"
+arc-swap = "1.9.3"
+crossbeam = "0.8.5" # 并发工具
 dashmap = { version = "6.2.1", features = ["serde"] } # 并发 Map
 parking_lot = "0.12.5" # 锁相关同步原语，替代标准化，占用更小、性能更好，没有锁中毒
 
 # std/async
 futures = "0.3.34"
-async-trait = "0.1.92"
-trait-variant = "0.1.3"
-tokio = { version = "1.53.2", features = ["full"] }
+async-trait = "0.1.92" # 当前的 async trait 无法作为dyn trait使用，async-trait比较方便
+tokio = { version = "1.53.3", features = ["full"] }
 tokio-stream = "0.1.19"
 async-stream = "0.3"
 
@@ -125,7 +124,7 @@ tracing-opentelemetry = { version = "0.34.0", features = ["metrics"]  } # OTel �
 # std/zip
 flate2 = "1.1.10"  # 来自Rust官方，支持gzip、deflate、zip，有多个后端，默认是rust实现
 tar = "0.4.46"    # rust 实现
-zstd = "0.14.2"   # rust 实现
+zstd = "0.14.3"   # rust 实现
 
 # std/build
 shadow-rs = { version = "2.0.0", default-features = false } # 构建时信息，默认依赖git、time
@@ -146,7 +145,7 @@ validator = { version = "0.21.0", features = ["derive"] } # 校验
 serde_json = { version = "1.0", features = ["indexmap", "preserve_order"] }
 json-patch = "4.2.0"
 schemars = "1.2.3"                                        # 生成 JSON Schema
-jsonschema = { version = "0.58.6", features = [] }        # JSON Schema 验证
+jsonschema = { version = "0.59.0", features = [] }        # JSON Schema 验证
 # jmespath = "0.5.0" # 查询比jsonpath更擅长，但是转换json的又远不如 jq(jaq)/Jsonnet/Starlark/KCL/nickel
 
 toml = { version = "1.1.8", features = ["preserve_order"] }
@@ -169,7 +168,7 @@ umya-spreadsheet = "3.1.1"
 # 只读绝大多数的excel文件，支持 xlsx/xlsm/xlsb/xls/xltx/xltm/ods/csv 等格式
 # 单只读数据，无法获取样式
 calamine = { version = "0.36.1", features = ["dates"] }
-rust_xlsxwriter = { version = "0.99.1", features = [
+rust_xlsxwriter = { version = "0.100.0", features = [
     "chrono",
     "serde",
     # "polars",
@@ -300,7 +299,7 @@ dirs = "7.0.0"   # XDG 目录标准
 notify-rust = "4.18.2" # 桌面通知
 # cli-gui
 open = "5.4.4" # 打开URI（轻量，无系统依赖）
-arboard = "3.6.1" # 剪贴板
+arboard = "3.7.0" # 剪贴板
 rfd = { version = "0.17.2", default-features = false, features = [
     "xdg-portal",
 ] } # 文件选择窗口，默认依赖Wayland系统库以静态链接，使用
@@ -313,10 +312,10 @@ crossterm = "0.29.0" # ratatui 的后端
 # web
 # 缺失诸多功能，尤其是OpenAPI这类易用性和框架高耦合的，但没办法
 # salvo 集成太多且很多集成过于简陋; 不够成熟
-# topcoat 有待成熟; 主要集中在Web前端, 而非JSON API
-# actix-web 宏、和Tokio异步生态不是很融合
+# topcoat 有待成熟; 主要集中在Web前端, 而非JSON API; 类JSP的类JS模板语言前景也有观察
+# actix-web 基于宏；和Tokio异步生态不是很融合
 # warp 和axum定位冲突了
-# rocket 宏、维护状态不佳
+# rocket 基于宏；维护状态不佳
 axum = { version = "0.8.9", features = ["multipart", "ws"] }
 axum-extra = { version = "0.12.6", features = [
     "attachment",
@@ -402,7 +401,7 @@ sysinfo = "0.39.6"
 rustix = "1.1.5" # 来自 Bytecode Alliance, 支持不限于Unix, 不完全覆盖 libc, 但和nix仅依赖一个就好了
 
 # cloud-native
-opendal = { version = "0.59.4", features = [
+opendal = { version = "0.59.5", features = [
     "services-fs",
     "services-http", # 只读，但也很好用了
     "services-s3",
@@ -436,7 +435,7 @@ similar = "3.2.0" # 序列和文本diff算法
 # infra
 mimalloc = "0.1.52"                                  # 内存分配器，性能更好，尤其要替换musl的默认内存分配器
 rustls = { version = "*" }
-# 统一使用aws-lc-rs, ring、openssl 尽量保证不依赖
+# TLS加密库，目前尽量统一使用 aws-lc-rs, ring、openssl 尽量保证不依赖
 # ring = { version = "*" }                             # 目前作者将该库仍定位于实验品，不要直接依赖
 # openssl = { version = "*", features = ["vendored"] }
 
@@ -455,7 +454,7 @@ snmp2 = { version = "0.5.2", features = ["full"] }
 mib-rs = "0.10.0"
 
 # domain/ai-ml-llm
-agent-client-protocol = "3.3.0" # ACP 的服务端/客户端协议实现
+agent-client-protocol = "3.4.0" # ACP 的服务端/客户端协议实现
 rmcp = { version = "3.5.1", features = ["server"] } # MCP 的服务端/客户端协议实现
 async-openai = { version = "0.42.2", features = [
     "chat-completion-types",
@@ -489,7 +488,10 @@ printpdf = "0.12.8"        # 比lopdf、pdf-writer更高层次的PDF生成库
 [dev-dependencies]
 test-log = { version = "0.2.21", features = ["trace"] } # 测试时捕获log输出
 proptest = "1.12.0"                                      # 属性测试
-sqlx-cli = { version = "0.9.0", features = ["postgres", "sqlite", "mysql", "completions", "sqlx-toml"] }
+[dev-dependencies.sqlx-cli]
+version = "0.9.0"
+default-features = false
+features = ["postgres", "sqlite", "mysql", "completions", "sqlx-toml", "rustls"]
 # rustlings = "6.4"
 # systemfd = "0.4"
 # watchexec-cli
