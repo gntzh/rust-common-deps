@@ -18,7 +18,7 @@ backon = "1.6.0"       # 重试，但似乎并无必要
 governor = "0.10.4"    # 基于 GCRA 的in-process 限流
 open-feature = "0.3.0" # 
 moka = { version = "0.12.16", features = ["future"] }   # 缓存
-minijinja = { version = "3.0.1", features = [
+minijinja = { version = "3.0.3", features = [
     "json",
     "loop_controls",
 ] } # 模板引擎
@@ -32,7 +32,7 @@ rquickjs = { version = "0.14.0", features = ["macro", "indexmap"] }
 delegate = "0.13.5"                                   # 通过宏实现方法委托
 strum = { version = "0.28.0", features = ["derive"] } # Enum 属性、方法扩展
 derive_more = { version = "2", features = ["full"] }  # 宏，简化常用 trait 派生，尤其适合在 newtype pattern
-bon = "3.10.2"                                        # Builder Pattern 宏，支持函数参数的builder，很好用，但还不支持嵌套, 编译太慢
+bon = "3.10.3"                                        # Builder Pattern 宏，支持函数参数的builder，很好用，但还不支持嵌套, 编译太慢
 enum_dispatch = "0.3.13"                              # 相当于 Sealed Trait 的静态派发，但少用（少用宏、少用依赖）
 displaydoc = "0.2.7"                                  # 注释作为 Display
 indoc = "2.0.8"                                       # 宏，生成字符串去除前面的缩进
@@ -64,12 +64,14 @@ rayon = "1.12"
 arc-swap = "1.9.3"
 crossbeam = "0.8.5" # 并发工具
 dashmap = { version = "6.2.1", features = ["serde"] } # 并发 Map
-parking_lot = "0.12.5" # 锁相关同步原语，替代标准化，占用更小、性能更好，没有锁中毒
+parking_lot = "0.13.0" # 锁相关同步原语，替代标准化，占用更小、性能更好，没有锁中毒
 
 # std/async
 futures = "0.3.34"
-async-trait = "0.1.92" # 当前的 async trait 无法作为dyn trait使用，async-trait比较方便
-tokio = { version = "1.53.3", features = ["full"] }
+async-trait = "0.1.92"      # 当前的 async trait 无法作为dyn trait使用，async-trait比较方便
+pin-project-lite = "0.2.17" # 便捷的创建自引用结构, lite版本够用了
+tokio = { version = "1.54.1", features = ["full"] }
+tokio-util = { version = "0.7.20", features = ["full"] } # tokio utils 
 tokio-stream = "0.1.19"
 async-stream = "0.3"
 
@@ -113,7 +115,7 @@ opentelemetry = "0.33.1"                          # OTel 公共依赖
 opentelemetry_sdk = "0.33.1"                      # OTel SDK: Tracing/Log/Metrics
 opentelemetry-semantic-conventions = "0.33.1"     # OTel 语义约定
 opentelemetry-stdout = "0.33.1"                   # OTel 直接输出到 stdout，测试使用
-opentelemetry-otlp = {version = "0.33.1", features = ["grpc-tonic"]} # OTel OTLP Exporter 实现，对接标准的 OpenTelemetry Collector，支持 gRPC、HTTP/JSON、HTTP/Protobuf
+opentelemetry-otlp = { version = "0.33.1", features = ["grpc-tonic"] } # OTel OTLP Exporter 实现，对接标准的 OpenTelemetry Collector，支持 gRPC、HTTP/JSON、HTTP/Protobuf
 
 opentelemetry-resource-detectors = "0.13.0"       # OTel Os、Proc、Container 环境的资源识别
 opentelemetry-instrumentation-tower = "0.19.0"    # 集成 tower
@@ -145,7 +147,7 @@ validator = { version = "0.21.0", features = ["derive"] } # 校验
 serde_json = { version = "1.0", features = ["indexmap", "preserve_order"] }
 json-patch = "4.2.0"
 schemars = "1.2.3"                                        # 生成 JSON Schema
-jsonschema = { version = "0.59.0", features = [] }        # JSON Schema 验证
+jsonschema = { version = "0.60.1", features = [] }        # JSON Schema 验证
 # jmespath = "0.5.0" # 查询比jsonpath更擅长，但是转换json的又远不如 jq(jaq)/Jsonnet/Starlark/KCL/nickel
 
 toml = { version = "1.1.8", features = ["preserve_order"] }
@@ -154,7 +156,7 @@ csv = "1.4.0"
 yaml_serde = "0.10.7" # 原作者早就不再维护，目前是yaml官方接手维护, 主要是ops使用
 quick-xml = { version = "0.42.0", features = ["encoding", "serialize"] }
 # data-type
-uuid = { version = "1.28.0", features = [
+uuid = { version = "1.29.0", features = [
     "v4",                # 随机 UUID
     "v7",                # 随时间递增 UUID
     "macro-diagnostics",
@@ -167,15 +169,15 @@ uuid = { version = "1.28.0", features = [
 umya-spreadsheet = "3.1.1"
 # 只读绝大多数的excel文件，支持 xlsx/xlsm/xlsb/xls/xltx/xltm/ods/csv 等格式
 # 单只读数据，无法获取样式
-calamine = { version = "0.36.1", features = ["dates"] }
-rust_xlsxwriter = { version = "0.100.0", features = [
+calamine = { version = "0.37.0", features = ["dates"] }
+rust_xlsxwriter = { version = "0.101.0", features = [
     "chrono",
     "serde",
     # "polars",
 ] }
 # 问题是这是一个大型的C++依赖，不好静态编译到musl
 # duckdb = { version = "1.10503.1", features = ["chrono", "bundled", "vtab-excel", "parquet"] }
-parquet = { version = "60.0.0", features = ["async", "json"]}
+parquet = { version = "60.0.0", features = ["async", "json"] } # 依旧主流的列存文件格式
 # 暂不使用
 # - Rust版本的API不稳定，且 MRSV 要求过高
 # - 依赖树巨大，编译缓慢
@@ -246,13 +248,14 @@ reqwest = { version = "0.13.5", features = [
     "stream",
     # default
 ] }
+eventsource-stream = { version = "0.2" } # 对字节流实现SSE解析，比较老的一个库，凑活用吧
 # reqwest-middleware = "0.5.0"
 # reqwest-retry = "0.9.0"
 # reqwest-tracing = "0.6.0"
 tokio-tungstenite = { version = "0.30.0", features = ["rustls-tls-webpki-roots"] }
 
 # HTTP: LB
-# pingora = { version = "0.6.0", features = ["proxy", "time", "lb", "proxy"]}
+# pingora = { version = "0.6.0", features = ["proxy", "time", "lb", "proxy"] }
 
 # database
 sqlx = { version = "0.9.0", features = [
@@ -272,7 +275,7 @@ sqlx = { version = "0.9.0", features = [
 jiff-sqlx = "0.2.0" # jiff 的 SQLx 适配器，提供 jiff::DateTime 与 SQLx 的互操作性
 # toasty = { version = "0.7.0", features = ["jiff","sqlite", "mysql", "postgresql"] } # 仍不成熟，查询、迁移功能缺失
 # turso = "0.6.1" # SQLite 兼容性还是不行，观察
-redis = { version = "1.7.1", features = [
+redis = { version = "1.8.0", features = [
     "tokio-rustls-comp",
     "cluster-async",
     "connection-manager",
@@ -301,7 +304,7 @@ dotenvy = "0.15" # .env 文件支持
 dirs = "7.0.0"   # XDG 目录标准
 notify-rust = "4.18.2" # 桌面通知
 # cli-gui
-open = "5.4.4" # 打开URI（轻量，无系统依赖）
+open = "5.4.5" # 打开URI（轻量，无系统依赖）
 arboard = "3.7.0" # 剪贴板
 rfd = { version = "0.17.2", default-features = false, features = [
     "xdg-portal",
@@ -354,8 +357,8 @@ utoipa = { version = "6.0.0", features = [
 ] }
 utoipa-axum = "0.3.0"
 # utoipa-scalar = { version = "0.1.0", features = ["axum"] } # 无法 vendor
-utoipa-swagger-ui = { version = "10.0.1", features = ["axum", "vendored"] }
-topcoat = { version = "0.10.0", features = ["ui", "tailwind"]}
+utoipa-swagger-ui = { version = "10.0.2", features = ["axum", "vendored"] }
+# topcoat = { version = "0.10.0", features = ["ui", "tailwind"] }
 
 # web/misc
 # slug = "0.1.6"  # 主要用在 CMS、博客、文档等需要语义化url的内容平台, 也不具有统一转化规则
@@ -380,7 +383,7 @@ topcoat = { version = "0.10.0", features = ["ui", "tailwind"]}
 # * sdk不支持 context propagation https://github.com/restatedev/sdk-rust/issues/64
 # * 缺少内置支持的 cron https://github.com/restatedev/restate/issues/12
 restate-sdk = { version = "0.12.1", features = ["reqwest-client"] }
-croner = { version = "4.0.1", features = ["serde"] }
+croner = { version = "4.0.2", features = ["serde"] }
 
 ldap3 = { version = "0.12.1", default-features = false, features = [
     "tls-rustls-aws-lc-rs"
@@ -458,8 +461,8 @@ snmp2 = { version = "0.5.2", features = ["full"] }
 mib-rs = "0.10.0"
 
 # domain/ai-ml-llm
-agent-client-protocol = "3.4.0" # ACP 的服务端/客户端协议实现
-rmcp = { version = "3.5.1", features = ["server"] } # MCP 的服务端/客户端协议实现
+agent-client-protocol = "3.5.0" # ACP 的服务端/客户端协议实现
+rmcp = { version = "3.7.0", features = ["server"] } # MCP 的服务端/客户端协议实现
 async-openai = { version = "0.42.2", features = [
     "chat-completion-types",
     "response-types",
@@ -482,7 +485,7 @@ lettre = { version = "0.11.23", default-features = false, features = [
 email_address = "0.2.9"
 
 # domain/doc
-pulldown-cmark = "0.13.4"
+pulldown-cmark = "0.13.5"
 printpdf = "0.12.8"        # 比lopdf、pdf-writer更高层次的PDF生成库
 # 缺失docx生成
 
@@ -498,7 +501,7 @@ proptest = "1.12.0"                                      # 属性测试
 # evcxr_repl = "0.19.0" # REPL
 # cargo-typify = "0.5.0"
 # bpf-linker
-topcoat-cli = "0.10.0" # ureq 依赖 ring
+# topcoat-cli = "0.10.0" # ureq 依赖 ring
 [dev-dependencies.sqlx-cli] # # rustls 依赖 ring，没提供 aws-lc-rs 选项
 version = "0.9.0"
 default-features = false
