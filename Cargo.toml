@@ -18,12 +18,12 @@ backon = "1.6.0"       # 重试，但似乎并无必要
 governor = "0.10.4"    # 基于 GCRA 的in-process 限流
 open-feature = "0.3.0" # 
 moka = { version = "0.12.16", features = ["future"] }   # 缓存
-minijinja = { version = "3.0.3", features = [
+minijinja = { version = "3.0.5", features = [
     "json",
     "loop_controls",
 ] } # 模板引擎
 nom = "8.0.0" # parser combinator，解析器组合器，使用最多
-notify = "8.2.0"
+notify = "8.2.1"
 # deadpool = { version = "0.13.1" } # 池管理，更适合数据库这种长期正常的连接
 # 嵌入式搅拌方案，js比lua更适用，虽然方案不如mlua成熟
 rquickjs = { version = "0.14.0", features = ["macro", "indexmap"] }
@@ -82,7 +82,7 @@ walkdir = "2.5.0"  # 递归遍历目录
 tempfile = "3.27"  # 临时文件、内存文件
 which = "8.0.6"    # 类似 which 命令
 glob = "0.3.4"     # glob 模式匹配, 来自 rust 官方
-globset = "0.4.20" # 支持一组glob，来自 ripgrep
+globset = "0.4.21" # 支持一组glob，来自 ripgrep
 hostname = "0.4.2" # 获取主机名，零依赖
 chrono = { version = "0.4.45", default-features = false, features = [
     "serde",
@@ -101,7 +101,7 @@ anyhow = "1.0.104"
 thiserror = "2.0.21"
 
 # std/log-trace-metric
-log = "0.4.34"
+log = "0.4.35"
 tracing = "0.1.44"
 tracing-subscriber = { version = "0.3", features = [
     "env-filter",
@@ -147,7 +147,7 @@ validator = { version = "0.21.0", features = ["derive"] } # 校验
 serde_json = { version = "1.0", features = ["indexmap", "preserve_order"] }
 json-patch = "4.2.0"
 schemars = "1.2.3"                                        # 生成 JSON Schema
-jsonschema = { version = "0.60.1", features = [] }        # JSON Schema 验证
+jsonschema = { version = "0.60.2", features = [] }        # JSON Schema 验证
 # jmespath = "0.5.0" # 查询比jsonpath更擅长，但是转换json的又远不如 jq(jaq)/Jsonnet/Starlark/KCL/nickel
 
 toml = { version = "1.1.8", features = ["preserve_order"] }
@@ -170,14 +170,14 @@ umya-spreadsheet = "3.1.1"
 # 只读绝大多数的excel文件，支持 xlsx/xlsm/xlsb/xls/xltx/xltm/ods/csv 等格式
 # 单只读数据，无法获取样式
 calamine = { version = "0.37.0", features = ["dates"] }
-rust_xlsxwriter = { version = "0.101.0", features = [
+rust_xlsxwriter = { version = "0.102.0", features = [
     "chrono",
     "serde",
     # "polars",
 ] }
-# 问题是这是一个大型的C++依赖，不好静态编译到musl
+# 问题是这是一个大型的C++依赖，不好静态编译到 musl + mimalloc
 # duckdb = { version = "1.10503.1", features = ["chrono", "bundled", "vtab-excel", "parquet"] }
-parquet = { version = "60.0.0", features = ["async", "json"] } # 依旧主流的列存文件格式
+parquet = { version = "60.1.0", features = ["async", "json"] } # 依旧主流的列存文件格式
 # 暂不使用
 # - Rust版本的API不稳定，且 MRSV 要求过高
 # - 依赖树巨大，编译缓慢
@@ -275,7 +275,7 @@ sqlx = { version = "0.9.0", features = [
 jiff-sqlx = "0.2.0" # jiff 的 SQLx 适配器，提供 jiff::DateTime 与 SQLx 的互操作性
 # toasty = { version = "0.7.0", features = ["jiff","sqlite", "mysql", "postgresql"] } # 仍不成熟，查询、迁移功能缺失
 # turso = "0.6.1" # SQLite 兼容性还是不行，观察
-redis = { version = "1.8.0", features = [
+redis = { version = "1.8.1", features = [
     "tokio-rustls-comp",
     "cluster-async",
     "connection-manager",
@@ -294,7 +294,6 @@ owo-colors = { version = "4.4.0", features = ["supports-colors"] } # 彩色输�
 tabled = { version = "0.22.0", features = ["ansi"] } # 打印表格样式
 indicatif = "0.18.6" # 进度条
 dialoguer = "0.12.0" # prompt，console/indicatif 的姊妹库，但风格并不喜欢
-# cliclack = "0.3.6" # prompt，不额外引入依赖了，还是用 dialoguer
 console = "0.16.6" # 与终端交互
 figment = { version = "0.10", features = [
     "env",
@@ -382,19 +381,19 @@ utoipa-swagger-ui = { version = "10.0.2", features = ["axum", "vendored"] }
 # 也有些小问题
 # * sdk不支持 context propagation https://github.com/restatedev/sdk-rust/issues/64
 # * 缺少内置支持的 cron https://github.com/restatedev/restate/issues/12
-restate-sdk = { version = "0.12.1", features = ["reqwest-client"] }
+restate-sdk = { version = "0.13.0", features = ["reqwest-client"] }
 croner = { version = "4.0.2", features = ["serde"] }
 
 ldap3 = { version = "0.12.1", default-features = false, features = [
     "tls-rustls-aws-lc-rs"
 ] } # LDAP 客户端
 
-# grpc
-tonic = "0.14.6"
-prost = "0.14.4"
-tonic-prost = "0.14.6"
-kube = { version = "4.2.0", default-features = false, features = ["client", "aws-lc-rs", "rustls-tls", "runtime", "derive"] } # 默认依赖 ring
-k8s-openapi = { version = "0.28.0", features = ["latest", "schemars"] }
+# grpc 暂不开发k8s相关，暂不使用
+# tonic = "0.14.8"
+# prost = "0.14.4"
+# tonic-prost = "0.14.8"
+# kube = { version = "4.2.0", default-features = false, features = ["client", "aws-lc-rs", "rustls-tls", "runtime", "derive"] } # 默认依赖 ring
+# k8s-openapi = { version = "0.29.0", features = ["latest", "schemars"] }
 
 # network
 ipnet = { version = "2.12.2", features = ["serde"] } # IP网络集合表示
@@ -402,9 +401,9 @@ prefix-trie = "0.10.1" # 针对IP的前缀树，支持 IPv4/IPv6以及二者的�
 mac_address = "1.2.1"
 
 # OS
-sysinfo = "0.39.6"
+sysinfo = "0.40.1"
 # nix = "0.31.1" # 对 libc 的安全封装
-rustix = "1.1.5" # 来自 Bytecode Alliance, 支持不限于Unix, 不完全覆盖 libc, 但和nix仅依赖一个就好了
+rustix = "1.1.6" # 来自 Bytecode Alliance, 支持不限于Unix, 不完全覆盖 libc, 但和nix仅依赖一个就好了
 
 # cloud-native
 opendal = { version = "0.59.5", features = [
@@ -436,7 +435,7 @@ secrecy = { version = "0.10.3", features = ["serde"] } # 和密码无关，只�
 
 # string
 strsim = "0.11.1" # 字符串相似度，可用于告警相似度
-similar = "3.2.0" # 序列和文本diff算法
+similar = "3.2.1" # 序列和文本diff算法
 
 # infra
 mimalloc = "0.1.52"                                  # 内存分配器，性能更好，尤其要替换musl的默认内存分配器
@@ -451,19 +450,19 @@ rustls = { version = "*" }
 # FIX: 强制依赖ring，已提PR允许aws-lc-rs https://github.com/Miyoshi-Ryota/async-ssh2-tokio/pull/116
 # async-ssh2-tokio = "0.13.0"                            # SSH 客户端，依赖 russh
 async-ssh2-tokio = { git = "https://github.com/gntzh/async-ssh2-tokio.git" }
-# expectrl = { version = "0.9.0", features = ["async"] } # expect-like执行交互式程序，主要局限于本地命令调用
 shlex = "2.0.1"                                        # shell 字符串转义
 strip-ansi-escapes = "0.2.1"                           # shell ansi控制字符剥离
 ansi-to-html = "0.2.4"                                 # shell ansi控制字符转html
+# expectrl = { version = "0.9.0", features = ["async"] } # expect-like执行交互式程序，主要局限于本地命令调用
 
 # domain/snmp # SNMP v3 安全认证部分完整实现过于复杂
 snmp2 = { version = "0.5.2", features = ["full"] }
 mib-rs = "0.10.0"
 
 # domain/ai-ml-llm
-agent-client-protocol = "3.5.0" # ACP 的服务端/客户端协议实现
-rmcp = { version = "3.7.0", features = ["server"] } # MCP 的服务端/客户端协议实现
-async-openai = { version = "0.42.2", features = [
+agent-client-protocol = "3.6.0" # ACP 的服务端/客户端协议实现
+rmcp = { version = "3.8.0", features = ["server"] } # MCP 的服务端/客户端协议实现
+async-openai = { version = "0.42.3", features = [
     "chat-completion-types",
     "response-types",
 ] } # OpenAI API 客户端，非官方实现
@@ -485,7 +484,7 @@ lettre = { version = "0.11.23", default-features = false, features = [
 email_address = "0.2.9"
 
 # domain/doc
-pulldown-cmark = "0.13.5"
+pulldown-cmark = "0.13.6"
 printpdf = "0.12.8"        # 比lopdf、pdf-writer更高层次的PDF生成库
 # 缺失docx生成
 
