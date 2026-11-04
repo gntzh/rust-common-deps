@@ -2,7 +2,7 @@
 name = "rust-common-deps"
 version = "0.1.0"
 edition = "2024"
-rust-version = "1.96.0" # MSRV
+rust-version = "1.99.0" # MSRV
 description = "Rust common dependencies"
 
 [package.metadata.vendor-filter]
@@ -89,7 +89,7 @@ chrono = { version = "0.4.45", default-features = false, features = [
     "std",
     "clock",
 ] }                # 最旧但也最广泛的一个日期库，择机替换为 jiff （sqlx支持后）
-jiff = "0.2.38"    # 现代日期库，替代 chrono
+jiff = "0.2.39"    # 现代日期库，替代 chrono
 
 # std/num
 num-traits = "0.2.19"
@@ -150,8 +150,8 @@ schemars = "1.2.3"                                        # 生成 JSON Schema
 jsonschema = { version = "0.60.2", features = [] }        # JSON Schema 验证
 # jmespath = "0.5.0" # 查询比jsonpath更擅长，但是转换json的又远不如 jq(jaq)/Jsonnet/Starlark/KCL/nickel
 
-toml = { version = "1.1.8", features = ["preserve_order"] }
-toml_edit = "0.25.17"
+toml = { version = "1.2.0", features = ["preserve_order"] }
+toml_edit = "0.25.18"
 csv = "1.4.0"
 yaml_serde = "0.10.7" # 原作者早就不再维护，目前是yaml官方接手维护, 主要是ops使用
 quick-xml = { version = "0.42.0", features = ["encoding", "serialize"] }
@@ -169,7 +169,7 @@ uuid = { version = "1.29.0", features = [
 umya-spreadsheet = "3.1.1"
 # 只读绝大多数的excel文件，支持 xlsx/xlsm/xlsb/xls/xltx/xltm/ods/csv 等格式
 # 单只读数据，无法获取样式
-calamine = { version = "0.37.0", features = ["dates"] }
+calamine = { version = "0.38.0", features = ["dates"] }
 rust_xlsxwriter = { version = "0.102.0", features = [
     "chrono",
     "serde",
@@ -248,7 +248,8 @@ reqwest = { version = "0.13.5", features = [
     "stream",
     # default
 ] }
-eventsource-stream = { version = "0.2" } # 对字节流实现SSE解析，比较老的一个库，凑活用吧
+# eventsource-stream = { version = "0.2" } # 对字节流实现SSE解析，比较老的一个库，凑活用吧
+sse-stream = "0.3.0"
 # reqwest-middleware = "0.5.0"
 # reqwest-retry = "0.9.0"
 # reqwest-tracing = "0.6.0"
@@ -272,7 +273,7 @@ sqlx = { version = "0.9.0", features = [
     "json",
     "rust_decimal",
 ] }
-jiff-sqlx = "0.2.0" # jiff 的 SQLx 适配器，提供 jiff::DateTime 与 SQLx 的互操作性
+jiff-sqlx = "0.2.1" # jiff 的 SQLx 适配器，提供 jiff::DateTime 与 SQLx 的互操作性
 # toasty = { version = "0.7.0", features = ["jiff","sqlite", "mysql", "postgresql"] } # 仍不成熟，查询、迁移功能缺失
 # turso = "0.6.1" # SQLite 兼容性还是不行，观察
 redis = { version = "1.8.1", features = [
@@ -334,7 +335,7 @@ axum-extra = { version = "0.12.6", features = [
     "typed-routing",
     "typed-header",
 ] }
-axum_typed_multipart = "0.16.8"
+axum_typed_multipart = "0.17.0"
 axum-valid = "0.25.0"
 tower = { version = "0.5", features = ["full"] }
 tower-http = { version = "0.7.1", features = ["full"] }
@@ -397,7 +398,7 @@ ldap3 = { version = "0.12.1", default-features = false, features = [
 
 # network
 ipnet = { version = "2.12.2", features = ["serde"] } # IP网络集合表示
-prefix-trie = "0.10.1" # 针对IP的前缀树，支持 IPv4/IPv6以及二者的混合
+prefix-trie = "0.10.2" # 针对IP的前缀树，支持 IPv4/IPv6以及二者的混合
 mac_address = "1.2.1"
 
 # OS
@@ -456,13 +457,13 @@ ansi-to-html = "0.2.4"                                 # shell ansi控制字符�
 # expectrl = { version = "0.9.0", features = ["async"] } # expect-like执行交互式程序，主要局限于本地命令调用
 
 # domain/snmp # SNMP v3 安全认证部分完整实现过于复杂
-snmp2 = { version = "0.5.2", features = ["full"] }
+snmp2 = { version = "0.5.3", features = ["full"] }
 mib-rs = "0.10.0"
 
 # domain/ai-ml-llm
-agent-client-protocol = "3.6.0" # ACP 的服务端/客户端协议实现
+agent-client-protocol = "5.0.0" # ACP 的服务端/客户端协议实现
 rmcp = { version = "3.8.0", features = ["server"] } # MCP 的服务端/客户端协议实现
-async-openai = { version = "0.42.3", features = [
+async-openai = { version = "0.43.0", features = [
     "chat-completion-types",
     "response-types",
 ] } # OpenAI API 客户端，非官方实现

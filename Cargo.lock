@@ -58,12 +58,13 @@ dependencies = [
 
 [[package]]
 name = "agent-client-protocol"
-version = "3.6.0"
+version = "5.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "89b41f18aeb4a6d1a463b994cb880cc562cdea7d616ea3e22f9c6f2a438fc4f6"
+checksum = "80ce60ce096020c2d0aa10445bc27b8856109e288abaf564ab517031ae819d69"
 dependencies = [
  "agent-client-protocol-derive",
  "agent-client-protocol-schema",
+ "anyhow",
  "futures",
  "futures-concurrency",
  "rustc-hash",
@@ -75,9 +76,9 @@ dependencies = [
 
 [[package]]
 name = "agent-client-protocol-derive"
-version = "3.6.0"
+version = "5.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5d2d255cb5d3afa4760084fbcaf87c7d214d316328546cd777d8736a8af6e368"
+checksum = "a12951a4e9a163a9384dec4e5681bd774c0fdb3871c5ed1deb7b44bc630df17a"
 dependencies = [
  "quote",
  "syn 3.0.9",
@@ -85,9 +86,9 @@ dependencies = [
 
 [[package]]
 name = "agent-client-protocol-schema"
-version = "1.13.0"
+version = "1.15.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c7c7cee33b16d162a617d5ea7292471c542ab31b416a2c089228aa8a6d4d18fe"
+checksum = "1b2316d2cd561917bc2c16e3c64771c77e24363b56d40b58fdad091d02059992"
 dependencies = [
  "anyhow",
  "derive_more",
@@ -598,9 +599,9 @@ dependencies = [
 
 [[package]]
 name = "async-openai"
-version = "0.42.3"
+version = "0.43.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "04382e9f293268e235ef0ef51a18e7c988e70a52e3a5c893d497c67ec613a9a6"
+checksum = "2c30702b56c3a8e7d9b01c94b0d7927019f3fe6aa2d7af7d2f1968bbdb858eec"
 dependencies = [
  "bytes",
  "derive_builder",
@@ -893,9 +894,9 @@ dependencies = [
 
 [[package]]
 name = "axum_typed_multipart"
-version = "0.16.8"
+version = "0.17.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8ef95527c57c144f049bca3e22241c757aef062f33b1fb64e63fd142abf1f1b9"
+checksum = "9d5b17d41717e718fd1f973354ce9447f2406e5ac51781a7f745758e34c63e43"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -914,9 +915,9 @@ dependencies = [
 
 [[package]]
 name = "axum_typed_multipart_macros"
-version = "0.16.8"
+version = "0.17.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1918cc19524a7a614387c0d9e67223f4f249193197eff40eb6a95d3b038662bf"
+checksum = "0fbbae315ceda6383fc2268384aa6555600c22c36c4e557f5a236ded183d2bb5"
 dependencies = [
  "darling 0.24.1",
  "heck 0.5.0",
@@ -1373,9 +1374,9 @@ dependencies = [
 
 [[package]]
 name = "calamine"
-version = "0.37.0"
+version = "0.38.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c9ca341b94bc4b29e08970b1a03914fad2dfe177e2ecb67fcd6de9046004aafb"
+checksum = "f431b67cba6122a1f7d26b7adafc71bbdf07026095fe811f5efc025d8748e1d8"
 dependencies = [
  "atoi_simd",
  "byteorder",
@@ -2991,17 +2992,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "eventsource-stream"
-version = "0.2.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "74fef4569247a5f429d9156b9d0a2599914385dd189c539334c625d8099d90ab"
-dependencies = [
- "futures-core",
- "nom 7.1.3",
- "pin-project-lite",
-]
-
-[[package]]
 name = "fancy-regex"
 version = "0.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4327,9 +4317,9 @@ checksum = "47f142fe24a9c9944451e8349de0a56af5f3e7226dc46f3ed4d4ecc0b85af75e"
 
 [[package]]
 name = "jiff"
-version = "0.2.38"
+version = "0.2.39"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b2b005715dcbeb0089a3c0dab99f2ff1cc3b2525323552703d648585d342a383"
+checksum = "3ac703058abac89e5c39b0b879dce2b6b14a4ba36600c7e7e3d0c60a6883ef3c"
 dependencies = [
  "defmt",
  "jiff-core",
@@ -4346,9 +4336,9 @@ dependencies = [
 
 [[package]]
 name = "jiff-core"
-version = "0.1.1"
+version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5e52fe76043ccecc9005d2305ebaadf7d7fc0cc89ca6baa10a94d6bc68c7128c"
+checksum = "aee43309eb53bafb8c36d35d6e444769c8f8e6206a9fbf7546f5db9d7d4a0e93"
 dependencies = [
  "defmt",
  "log",
@@ -4356,9 +4346,9 @@ dependencies = [
 
 [[package]]
 name = "jiff-sqlx"
-version = "0.2.0"
+version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "07f07e4e3efb45ce1507e32af3b1e8f31d33d5edbf041ffeda3180042c3abc58"
+checksum = "92b5f7fecbc824f6a2e6a40896613c65b1f5578cd1dcc108503672589682eed1"
 dependencies = [
  "jiff",
  "sqlx",
@@ -4366,9 +4356,9 @@ dependencies = [
 
 [[package]]
 name = "jiff-static"
-version = "0.2.38"
+version = "0.2.39"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2cc9817253cf7c7ee4684451bd327e88d6f3658014e54a29198625590650695c"
+checksum = "6dc32470c67eb7d0e9ccb74303fa925313dc04cecb1aa048beaa6f391e36a93d"
 dependencies = [
  "jiff-core",
  "proc-macro2",
@@ -6747,9 +6737,9 @@ dependencies = [
 
 [[package]]
 name = "prefix-trie"
-version = "0.10.1"
+version = "0.10.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6369af434551b9bf8be05ab871ac1263687d6f0c9485e6d781f904f3e06d7d03"
+checksum = "77fe9ec8fb906114b52bc2e9aa142ac11817d0fcd33a32fb2feb94d823ad9a4d"
 dependencies = [
  "array-const-fn-init",
  "either",
@@ -6846,7 +6836,7 @@ version = "3.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e67ba7e9b2b56446f1d419b1d807906278ffa1a658a8a5d8a39dcb1f5a78614f"
 dependencies = [
- "toml_edit 0.25.17+spec-1.1.0",
+ "toml_edit 0.25.18+spec-1.1.0",
 ]
 
 [[package]]
@@ -8093,7 +8083,6 @@ dependencies = [
  "email_address",
  "enum_dispatch",
  "equivalent",
- "eventsource-stream",
  "fastrand",
  "figment",
  "flate2",
@@ -8188,6 +8177,7 @@ dependencies = [
  "snmp2",
  "sqlx",
  "sqlx-cli",
+ "sse-stream",
  "static_assertions",
  "strip-ansi-escapes",
  "strsim",
@@ -8203,8 +8193,8 @@ dependencies = [
  "tokio-stream",
  "tokio-tungstenite 0.30.0",
  "tokio-util",
- "toml 1.1.8+spec-1.1.0",
- "toml_edit 0.25.17+spec-1.1.0",
+ "toml 1.2.0+spec-1.1.0",
+ "toml_edit 0.25.18+spec-1.1.0",
  "tower",
  "tower-http 0.7.1",
  "tracing",
@@ -9113,9 +9103,9 @@ checksum = "199905e6153d6405f9728fe44daace35f8f837bbf830bb6e85fbd5828709a886"
 
 [[package]]
 name = "snmp2"
-version = "0.5.2"
+version = "0.5.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ffacc454826c51e726b89d630b59fff892800184402beaa474574c2d9c3092ae"
+checksum = "b6fdb5fe8bca010de3e115b5bc079de1360bfd8257aae90c66979326eecee97a"
 dependencies = [
  "aes 0.8.4",
  "asn1-rs 0.6.2",
@@ -9409,6 +9399,22 @@ dependencies = [
  "tracing",
  "url",
  "uuid",
+]
+
+[[package]]
+name = "sse-stream"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d385160fc0fba84f7b9cc8ef3263e410d0e3ca7ab4927f1356df33145ace69a4"
+dependencies = [
+ "bytes",
+ "futures-util",
+ "http-body",
+ "http-body-util",
+ "memchr",
+ "pin-project-lite",
+ "simdutf8",
+ "thiserror 2.0.21",
 ]
 
 [[package]]
@@ -10157,9 +10163,9 @@ dependencies = [
 
 [[package]]
 name = "toml"
-version = "1.1.8+spec-1.1.0"
+version = "1.2.0+spec-1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "20489e00e4d8741d6be680764cc12e270655e375a20d1011e844a9c3379e678d"
+checksum = "c5ffcdf8f50436dbbfd675c1fe1b8e0854f42b7defea8584bdebe1aee900e561"
 dependencies = [
  "indexmap 2.14.2",
  "serde_core",
@@ -10204,9 +10210,9 @@ dependencies = [
 
 [[package]]
 name = "toml_edit"
-version = "0.25.17+spec-1.1.0"
+version = "0.25.18+spec-1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e3641d5bbb5349a79e1020a242d251efbc546ad8048d133958323ce9c40a9c9c"
+checksum = "1ec6e78bd70db9420d8d212fa9dc97f116448a1ceff5d00eabb991d407e21396"
 dependencies = [
  "indexmap 2.14.2",
  "toml_datetime 1.1.2+spec-1.1.0",
@@ -10232,9 +10238,9 @@ checksum = "5d99f8c9a7727884afe522e9bd5edbfc91a3312b36a77b5fb8926e4c31a41801"
 
 [[package]]
 name = "toml_writer"
-version = "1.1.3+spec-1.1.0"
+version = "1.2.0+spec-1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "06bdbd8cfc056b8d2e2e85f29b56a3bdbecb527cef81eb39e3e7b98af4652770"
+checksum = "009dbb7700f11c55ef83aebbe4c0e9cf1f1ac0844bd8d6f00dc38f302026e13a"
 
 [[package]]
 name = "tonic"
