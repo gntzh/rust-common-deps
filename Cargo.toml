@@ -18,7 +18,7 @@ backon = "1.6.0"       # 重试，但似乎并无必要
 governor = "0.10.4"    # 基于 GCRA 的in-process 限流
 open-feature = "0.3.0" # 
 moka = { version = "0.12.16", features = ["future"] }   # 缓存
-minijinja = { version = "3.0.5", features = [
+minijinja = { version = "3.1.0", features = [
     "json",
     "loop_controls",
 ] } # 模板引擎
@@ -61,7 +61,7 @@ bimap = { version = "0.6.3", features = ["serde"] }     # 双向 map ，维护�
 
 # std/concurrent
 rayon = "1.12"
-arc-swap = "1.9.3"
+arc-swap = "1.9.4"
 crossbeam = "0.8.5" # 并发工具
 dashmap = { version = "6.2.1", features = ["serde"] } # 并发 Map
 parking_lot = "0.13.0" # 锁相关同步原语，替代标准化，占用更小、性能更好，没有锁中毒
@@ -89,7 +89,7 @@ chrono = { version = "0.4.45", default-features = false, features = [
     "std",
     "clock",
 ] }                # 最旧但也最广泛的一个日期库，择机替换为 jiff （sqlx支持后）
-jiff = "0.2.39"    # 现代日期库，替代 chrono
+jiff = "0.2.40"    # 现代日期库，替代 chrono
 
 # std/num
 num-traits = "0.2.19"
@@ -124,7 +124,7 @@ opentelemetry-appender-tracing = "0.33.1"                               # OTel �
 tracing-opentelemetry = { version = "0.34.0", features = ["metrics"]  } # OTel 与 tracing 集成，把 tracing的span转换为OTel的Span
 
 # std/zip
-flate2 = "1.1.10"  # 来自Rust官方，支持gzip、deflate、zip，有多个后端，默认是rust实现
+flate2 = "1.1.11"  # 来自Rust官方，支持gzip、deflate、zip，有多个后端，默认是rust实现
 tar = "0.4.46"    # rust 实现
 zstd = "0.14.3"   # rust 实现
 
@@ -145,18 +145,18 @@ serde_path_to_error = "0.1.20"                            # serde 路径错误�
 validator = { version = "0.21.0", features = ["derive"] } # 校验
 # data/json
 serde_json = { version = "1.0", features = ["indexmap", "preserve_order"] }
-json-patch = "4.2.0"
+json-patch = "5.0.0"
 schemars = "1.2.3"                                        # 生成 JSON Schema
 jsonschema = { version = "0.60.2", features = [] }        # JSON Schema 验证
 # jmespath = "0.5.0" # 查询比jsonpath更擅长，但是转换json的又远不如 jq(jaq)/Jsonnet/Starlark/KCL/nickel
 
-toml = { version = "1.2.0", features = ["preserve_order"] }
-toml_edit = "0.25.18"
+toml = { version = "1.2.1", features = ["preserve_order"] }
+toml_edit = "0.25.19"
 csv = "1.4.0"
 yaml_serde = "0.10.7" # 原作者早就不再维护，目前是yaml官方接手维护, 主要是ops使用
 quick-xml = { version = "0.42.0", features = ["encoding", "serialize"] }
 # data-type
-uuid = { version = "1.29.0", features = [
+uuid = { version = "1.29.1", features = [
     "v4",                # 随机 UUID
     "v7",                # 随时间递增 UUID
     "macro-diagnostics",
@@ -306,7 +306,7 @@ notify-rust = "4.18.2" # 桌面通知
 # cli-gui
 open = "5.4.5" # 打开URI（轻量，无系统依赖）
 arboard = "3.7.0" # 剪贴板
-rfd = { version = "0.17.2", default-features = false, features = [
+rfd = { version = "0.18.0", default-features = false, features = [
     "xdg-portal",
 ] } # 文件选择窗口，默认依赖Wayland系统库以静态链接，使用
 wayland-backend = { version = "*", features = ["dlopen"] }
@@ -383,7 +383,7 @@ utoipa-swagger-ui = { version = "10.0.2", features = ["axum", "vendored"] }
 # * sdk不支持 context propagation https://github.com/restatedev/sdk-rust/issues/64
 # * 缺少内置支持的 cron https://github.com/restatedev/restate/issues/12
 restate-sdk = { version = "0.13.0", features = ["reqwest-client"] }
-croner = { version = "4.0.2", features = ["serde"] }
+croner = { version = "4.0.3", features = ["serde"] }
 
 ldap3 = { version = "0.12.1", default-features = false, features = [
     "tls-rustls-aws-lc-rs"
@@ -430,7 +430,7 @@ cbc = "0.2.1"       # AES CBC 模式，遗留，使用太多
 cfb-mode = "0.9.1"  # AES CFB 模式，遗留，使用太多(SNMP)
 # blowfish = "0.10.0" # Blowfish 加密算法，遗留
 # crypto/password
-password-auth = "1.0.0"
+password-auth = "2.0.0"
 argon2 = "0.6.0"                                         # KDF 算法
 secrecy = { version = "0.10.3", features = ["serde"] } # 和密码无关，只是用于安全包裹敏感数据
 
@@ -462,7 +462,7 @@ mib-rs = "0.10.0"
 
 # domain/ai-ml-llm
 agent-client-protocol = "5.0.0" # ACP 的服务端/客户端协议实现
-rmcp = { version = "3.8.0", features = ["server"] } # MCP 的服务端/客户端协议实现
+rmcp = { version = "3.9.0", features = ["server"] } # MCP 的服务端/客户端协议实现
 async-openai = { version = "0.43.0", features = [
     "chat-completion-types",
     "response-types",
