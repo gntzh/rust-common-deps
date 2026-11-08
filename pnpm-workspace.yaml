@@ -1,0 +1,8 @@
+allowBuilds:
+  esbuild: true
+supportedArchitectures:
+  - linux-x64
+  - linux-arm64
+  # musl 并不一定是静态链接，很可能是用于alpine，依赖musl的动态链接库
+  # - linux-x64-musl
+  # - linux-arm64-musl

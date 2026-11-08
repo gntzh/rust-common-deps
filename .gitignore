@@ -3,3 +3,4 @@ vendor
 vendor.*
 /dist
 /.vscode
+node_modules
