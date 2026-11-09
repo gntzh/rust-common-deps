@@ -23,7 +23,7 @@ minijinja = { version = "3.1.0", features = [
     "loop_controls",
 ] } # 模板引擎
 nom = "8.0.0" # parser combinator，解析器组合器，使用最多
-notify = "8.2.1"
+notify = "8.2.2"
 # deadpool = { version = "0.13.1" } # 池管理，更适合数据库这种长期正常的连接
 # 嵌入式搅拌方案，js比lua更适用，虽然方案不如mlua成熟
 rquickjs = { version = "0.14.0", features = ["macro", "indexmap"] }
@@ -89,7 +89,7 @@ chrono = { version = "0.4.45", default-features = false, features = [
     "std",
     "clock",
 ] }                # 最旧但也最广泛的一个日期库，择机替换为 jiff （sqlx支持后）
-jiff = "0.2.40"    # 现代日期库，替代 chrono
+jiff = "0.2.41"    # 现代日期库，替代 chrono
 
 # std/num
 num-traits = "0.2.19"
@@ -147,7 +147,7 @@ validator = { version = "0.21.0", features = ["derive"] } # 校验
 serde_json = { version = "1.0", features = ["indexmap", "preserve_order"] }
 json-patch = "5.0.0"
 schemars = "1.2.3"                                        # 生成 JSON Schema
-jsonschema = { version = "0.60.2", features = [] }        # JSON Schema 验证
+jsonschema = { version = "0.61.0", features = [] }        # JSON Schema 验证
 # jmespath = "0.5.0" # 查询比jsonpath更擅长，但是转换json的又远不如 jq(jaq)/Jsonnet/Starlark/KCL/nickel
 
 toml = { version = "1.2.1", features = ["preserve_order"] }
@@ -156,7 +156,7 @@ csv = "1.4.0"
 yaml_serde = "0.10.7" # 原作者早就不再维护，目前是yaml官方接手维护, 主要是ops使用
 quick-xml = { version = "0.42.0", features = ["encoding", "serialize"] }
 # data-type
-uuid = { version = "1.29.1", features = [
+uuid = { version = "1.29.2", features = [
     "v4",                # 随机 UUID
     "v7",                # 随时间递增 UUID
     "macro-diagnostics",
@@ -273,7 +273,7 @@ sqlx = { version = "0.9.0", features = [
     "json",
     "rust_decimal",
 ] }
-jiff-sqlx = "0.2.1" # jiff 的 SQLx 适配器，提供 jiff::DateTime 与 SQLx 的互操作性
+jiff-sqlx = "0.2.2" # jiff 的 SQLx 适配器，提供 jiff::DateTime 与 SQLx 的互操作性
 # toasty = { version = "0.7.0", features = ["jiff","sqlite", "mysql", "postgresql"] } # 仍不成熟，查询、迁移功能缺失
 # turso = "0.6.1" # SQLite 兼容性还是不行，观察
 redis = { version = "1.8.1", features = [
@@ -302,7 +302,7 @@ figment = { version = "0.10", features = [
 ] } # 配置管理，config-rs 维护状态不佳
 dotenvy = "0.15" # .env 文件支持
 dirs = "7.0.0"   # XDG 目录标准
-notify-rust = "4.18.2" # 桌面通知
+notify-rust = "4.19.0" # 桌面通知
 # cli-gui
 open = "5.4.5" # 打开URI（轻量，无系统依赖）
 arboard = "3.7.0" # 剪贴板
