@@ -1,5 +1,8 @@
 allowBuilds:
+  cpu-features: true
   esbuild: true
+  protobufjs: true
+  ssh2: true
 supportedArchitectures:
   - linux-x64
   - linux-arm64
