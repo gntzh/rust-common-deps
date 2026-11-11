@@ -26,3 +26,7 @@ compress: ## Compress vendor as tar.xz
 .PHONY: upgrade
 upgrade: ## Update Dependencies
 	cargo upgrade -v
+
+.PHONY: pnpm-airgap-fetch
+pnpm-airgap-fetch:
+	node .pnpm-airgap/cli.cjs fetch --exclude-packages ./pnpm-airgap-exclude.txt -l pnpm-lock.yaml   -o ./vendor.js

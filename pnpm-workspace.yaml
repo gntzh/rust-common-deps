@@ -1,11 +1,14 @@
 allowBuilds:
+  core-js: set this to true or false
   cpu-features: true
   esbuild: true
+  onnxruntime-node: set this to true or false
   protobufjs: true
   ssh2: true
-supportedArchitectures:
-  - linux-x64
-  - linux-arm64
+  vue-demi: set this to true or false
+# supportedArchitectures:
+#   - linux-x64
+  # - linux-arm64
   # musl 并不一定是静态链接，很可能是用于alpine，依赖musl的动态链接库
   # - linux-x64-musl
   # - linux-arm64-musl

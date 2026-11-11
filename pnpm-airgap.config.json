@@ -1,0 +1,41 @@
+{
+  "fetch": {
+    "lockfilePath": "pnpm-lock.yaml",
+    "outputDir": "vendor.js",
+    "concurrency": 16,
+    "registryUrl": "https://registry.npmjs.org",
+    "registryStatePath": null,
+    "skipOptional": false,
+    "debug": false
+  },
+  "publish": {
+    "packagesDir": "./airgap-packages",
+    "registryUrl": "http://localhost:4873",
+    "concurrency": 8,
+    "skipExisting": true,
+    "dryRun": false,
+    "debug": false
+  },
+  "sync": {
+    "sourceRegistry": "",
+    "destRegistry": "http://localhost:4873",
+    "outputDir": "./sync-packages",
+    "scope": null,
+    "packageList": null,
+    "maxVersions": null,
+    "sinceDate": null,
+    "concurrency": 5,
+    "skipExisting": true,
+    "downloadOnly": false,
+    "publishOnly": false,
+    "dryRun": false,
+    "debug": false
+  },
+  "registryState": {
+    "registryUrl": "http://localhost:4873",
+    "outputPath": "./registry-state.json",
+    "scope": null,
+    "concurrency": 10,
+    "debug": false
+  }
+}

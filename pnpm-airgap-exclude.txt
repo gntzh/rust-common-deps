@@ -1,0 +1,56 @@
+# Keep platform-neutral packages and Linux arm64/x64 (glibc) native packages.
+# Usage: node .pnpm-airgap/cli.cjs fetch --exclude-packages ./pnpm-airgap-exclude.txt
+# "! " introduces a keep exception; exceptions always take priority.
+# Existing downloaded tarballs are not removed.
+
+# pnpm is downloaded separately.
+pnpm
+@pnpm/exe
+@pnpm/exe.*
+
+# Native package families: retain only the target Linux variants.
+@anush008/tokenizers-*
+! @anush008/tokenizers-linux-{arm64,x64}-gnu
+
+@duckdb/node-bindings-*
+! @duckdb/node-bindings-linux-{arm64,x64}
+
+@effect/tsgo-*
+! @effect/tsgo-linux-{arm64,x64}
+
+@esbuild/*
+! @esbuild/linux-{arm64,x64}
+
+@libsql/{aix,android,darwin,freebsd,linux,netbsd,openbsd,openharmony,sunos,win32}-*
+! @libsql/linux-{arm64,x64}-gnu
+
+@oxfmt/binding-*
+! @oxfmt/binding-linux-{arm64,x64}-gnu
+
+@oxlint/binding-*
+! @oxlint/binding-linux-{arm64,x64}-gnu
+
+@oxlint-tsgolint/*
+! @oxlint-tsgolint/linux-{arm64,x64}
+
+@rolldown/binding-*
+! @rolldown/binding-linux-{arm64,x64}-gnu
+
+@rollup/rollup-*
+! @rollup/rollup-linux-{arm64,x64}-gnu
+
+@tailwindcss/oxide-*
+! @tailwindcss/oxide-linux-{arm64,x64}-gnu
+
+@turbo/*
+! @turbo/linux-{arm64,64}
+
+@typescript/typescript-*
+! @typescript/typescript-linux-{arm64,x64}
+
+lightningcss-*
+! lightningcss-linux-{arm64,x64}-gnu
+
+
+# macOS-only filesystem watcher.
+fsevents
