@@ -24,6 +24,9 @@ pnpm
 @libsql/{aix,android,darwin,freebsd,linux,netbsd,openbsd,openharmony,sunos,win32}-*
 ! @libsql/linux-{arm64,x64}-gnu
 
+@nx/nx-{aix,android,darwin,freebsd,linux,netbsd,openbsd,openharmony,sunos,win32}-*
+! @nx/nx-linux-{arm64,x64}-gnu
+
 @oxfmt/binding-*
 ! @oxfmt/binding-linux-{arm64,x64}-gnu
 
@@ -48,9 +51,11 @@ pnpm
 @typescript/typescript-*
 ! @typescript/typescript-linux-{arm64,x64}
 
+@yuku-toolchain/{aix,android,darwin,freebsd,linux,netbsd,openbsd,openharmony,sunos,win32}-*
+! @yuku-toolchain/linux-{arm64,x64}
+
 lightningcss-*
 ! lightningcss-linux-{arm64,x64}-gnu
-
 
 # macOS-only filesystem watcher.
 fsevents

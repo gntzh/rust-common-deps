@@ -1,7 +1,11 @@
 allowBuilds:
+  agent-browser: set this to true or false
   core-js: set this to true or false
   cpu-features: true
+  edgedriver: set this to true or false
   esbuild: true
+  geckodriver: set this to true or false
+  nx: set this to true or false
   onnxruntime-node: set this to true or false
   protobufjs: true
   ssh2: true
@@ -12,3 +16,8 @@ allowBuilds:
   # musl 并不一定是静态链接，很可能是用于alpine，依赖musl的动态链接库
   # - linux-x64-musl
   # - linux-arm64-musl
+
+# ------------------------------------
+# 关于包选型
+# ------------------------------------
+# truborepo，优先用 nx
