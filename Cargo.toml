@@ -61,7 +61,7 @@ bimap = { version = "0.6.3", features = ["serde"] }     # 双向 map ，维护�
 
 # std/concurrent
 rayon = "1.12"
-arc-swap = "1.9.4"
+arc-swap = "1.9.5"
 crossbeam = "0.8.5" # 并发工具
 dashmap = { version = "6.2.1", features = ["serde"] } # 并发 Map
 parking_lot = "0.13.0" # 锁相关同步原语，替代标准化，占用更小、性能更好，没有锁中毒
@@ -89,7 +89,7 @@ chrono = { version = "0.4.45", default-features = false, features = [
     "std",
     "clock",
 ] }                # 最旧但也最广泛的一个日期库，择机替换为 jiff （sqlx支持后）
-jiff = "0.2.41"    # 现代日期库，替代 chrono
+jiff = "0.2.42"    # 现代日期库，替代 chrono
 
 # std/num
 num-traits = "0.2.19"
@@ -131,7 +131,7 @@ zstd = "0.14.3"   # rust 实现
 # std/build
 shadow-rs = { version = "2.0.0", default-features = false } # 构建时信息，默认依赖git、time
 # git2 = { version = "0.19.0", features = ["vendored-libgit2", "vendored-openssl"] }
-rust-embed = { version = "8.13.0", features = [
+rust-embed = { version = "8.14.0", features = [
     "include-exclude",
     "interpolate-folder-path",
     "mime_guess",
@@ -147,7 +147,7 @@ validator = { version = "0.21.0", features = ["derive"] } # 校验
 serde_json = { version = "1.0", features = ["indexmap", "preserve_order"] }
 json-patch = "5.0.0"
 schemars = "1.2.3"                                        # 生成 JSON Schema
-jsonschema = { version = "0.61.0", features = [] }        # JSON Schema 验证
+jsonschema = { version = "0.61.1", features = [] }        # JSON Schema 验证
 # jmespath = "0.5.0" # 查询比jsonpath更擅长，但是转换json的又远不如 jq(jaq)/Jsonnet/Starlark/KCL/nickel
 
 toml = { version = "1.2.1", features = ["preserve_order"] }
@@ -461,7 +461,7 @@ snmp2 = { version = "0.5.3", features = ["full"] }
 mib-rs = "0.10.0"
 
 # domain/ai-ml-llm
-agent-client-protocol = "5.0.0" # ACP 的服务端/客户端协议实现
+agent-client-protocol = "5.2.0" # ACP 的服务端/客户端协议实现
 rmcp = { version = "3.9.0", features = ["server"] } # MCP 的服务端/客户端协议实现
 async-openai = { version = "0.43.0", features = [
     "chat-completion-types",
