@@ -24,6 +24,9 @@ pnpm
 @libsql/{aix,android,darwin,freebsd,linux,netbsd,openbsd,openharmony,sunos,win32}-*
 ! @libsql/linux-{arm64,x64}-gnu
 
+@mariozechner/clipboard-*
+! @mariozechner/clipboard-linux-{arm64,x64}-gnu
+
 @nx/nx-{aix,android,darwin,freebsd,linux,netbsd,openbsd,openharmony,sunos,win32}-*
 ! @nx/nx-linux-{arm64,x64}-gnu
 
