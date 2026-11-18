@@ -44,7 +44,7 @@ quote = "1.0"
 proc-macro2 = "1.0"
 
 # std
-regex = "1.13.1"  # 正则正则表达式，不支持回溯
+regex = "1.13.2"  # 正则正则表达式，不支持回溯
 base64 = "0.23.1" # Base64 编码/解码
 hex = "0.4.3"     # Hex 编码/解码
 bytes = "1"       # 可复用的bytes，减少内存拷贝
@@ -76,7 +76,7 @@ tokio-stream = "0.1.19"
 async-stream = "0.3"
 
 # std/os
-rand = "0.10.3"    # 随机生成，API变动大，等待 1.0
+rand = "0.10.4"    # 随机生成，API变动大，等待 1.0
 fastrand = "2.5.0" # 轻量级随机生成，性能更好，API稳定，适合非密码学场景
 walkdir = "2.5.0"  # 递归遍历目录
 tempfile = "3.27"  # 临时文件、内存文件
@@ -89,7 +89,7 @@ chrono = { version = "0.4.45", default-features = false, features = [
     "std",
     "clock",
 ] }                # 最旧但也最广泛的一个日期库，择机替换为 jiff （sqlx支持后）
-jiff = "0.2.42"    # 现代日期库，替代 chrono
+jiff = "1.0.1"    # 现代日期库，替代 chrono
 
 # std/num
 num-traits = "0.2.19"
@@ -117,7 +117,7 @@ opentelemetry-semantic-conventions = "0.33.1"     # OTel 语义约定
 opentelemetry-stdout = "0.33.1"                   # OTel 直接输出到 stdout，测试使用
 opentelemetry-otlp = { version = "0.33.1", features = ["grpc-tonic"] } # OTel OTLP Exporter 实现，对接标准的 OpenTelemetry Collector，支持 gRPC、HTTP/JSON、HTTP/Protobuf
 
-opentelemetry-resource-detectors = "0.13.0"       # OTel Os、Proc、Container 环境的资源识别
+opentelemetry-resource-detectors = "0.13.1"       # OTel Os、Proc、Container 环境的资源识别
 opentelemetry-instrumentation-tower = "0.19.0"    # 集成 tower
 
 opentelemetry-appender-tracing = "0.33.1"                               # OTel 与 tracing 集成，把 tracing的event转换为OTel的LogRecords
@@ -126,7 +126,7 @@ tracing-opentelemetry = { version = "0.34.0", features = ["metrics"]  } # OTel �
 # std/zip
 flate2 = "1.1.11"  # 来自Rust官方，支持gzip、deflate、zip，有多个后端，默认是rust实现
 tar = "0.4.46"    # rust 实现
-zstd = "0.14.3"   # rust 实现
+zstd = "0.14.4"   # rust 实现
 
 # std/build
 shadow-rs = { version = "2.0.0", default-features = false } # 构建时信息，默认依赖git、time
@@ -147,7 +147,7 @@ validator = { version = "0.21.0", features = ["derive"] } # 校验
 serde_json = { version = "1.0", features = ["indexmap", "preserve_order"] }
 json-patch = "5.0.0"
 schemars = "1.2.3"                                        # 生成 JSON Schema
-jsonschema = { version = "0.61.1", features = [] }        # JSON Schema 验证
+jsonschema = { version = "0.61.2", features = [] }        # JSON Schema 验证
 # jmespath = "0.5.0" # 查询比jsonpath更擅长，但是转换json的又远不如 jq(jaq)/Jsonnet/Starlark/KCL/nickel
 
 toml = { version = "1.2.1", features = ["preserve_order"] }
@@ -156,7 +156,7 @@ csv = "1.4.0"
 yaml_serde = "0.10.7" # 原作者早就不再维护，目前是yaml官方接手维护, 主要是ops使用
 quick-xml = { version = "0.42.0", features = ["encoding", "serialize"] }
 # data-type
-uuid = { version = "1.29.2", features = [
+uuid = { version = "1.29.3", features = [
     "v4",                # 随机 UUID
     "v7",                # 随时间递增 UUID
     "macro-diagnostics",
@@ -259,7 +259,7 @@ tokio-tungstenite = { version = "0.30.0", features = ["rustls-tls-webpki-roots"]
 # pingora = { version = "0.6.0", features = ["proxy", "time", "lb", "proxy"] }
 
 # database
-sqlx = { version = "0.9.0", features = [
+sqlx = { version = "0.9.1", features = [
     "runtime-tokio",
     "sqlite",
     "mysql",
@@ -273,10 +273,10 @@ sqlx = { version = "0.9.0", features = [
     "json",
     "rust_decimal",
 ] }
-jiff-sqlx = "0.2.2" # jiff 的 SQLx 适配器，提供 jiff::DateTime 与 SQLx 的互操作性
+jiff-sqlx = "1.0.0" # jiff 的 SQLx 适配器，提供 jiff::DateTime 与 SQLx 的互操作性
 # toasty = { version = "0.7.0", features = ["jiff","sqlite", "mysql", "postgresql"] } # 仍不成熟，查询、迁移功能缺失
 # turso = "0.6.1" # SQLite 兼容性还是不行，观察
-redis = { version = "1.8.1", features = [
+redis = { version = "1.8.2", features = [
     "tokio-rustls-comp",
     "cluster-async",
     "connection-manager",
@@ -284,8 +284,8 @@ redis = { version = "1.8.1", features = [
 ] } # 官方、稳定1.0
 
 # cli
-clap = { version = "4.6.7", features = ["derive", "env", "wrap_help"] }
-clap_complete = "4.6.11" # clap: 补全
+clap = { version = "4.6.8", features = ["derive", "env", "wrap_help"] }
+clap_complete = "4.6.12" # clap: 补全
 colorchoice-clap = "1.0.8" # clap: 颜色全局控制参数，常见库中颜色输出均可统一控制，其实修改的是colorchoice库中的约定
 clap-verbosity-flag = { version = "3.0.4", features = [
     "tracing",
@@ -342,7 +342,7 @@ tower-http = { version = "0.7.1", features = ["full"] }
 # axum-login = "0.17"
 # tower-sessions = "0.14"
 # tower-sessions-redis-store = "0.16"
-jsonwebtoken = { version = "11.1.0", features = ["rust_crypto"] }
+jsonwebtoken = { version = "12.0.0", features = ["rust_crypto"] }
 listenfd = "1.0.2"
 tokio-cron-scheduler = { version = "0.15.1", features = [
     "signal",
@@ -402,7 +402,7 @@ prefix-trie = "0.10.2" # 针对IP的前缀树，支持 IPv4/IPv6以及二者的�
 mac_address = "1.2.1"
 
 # OS
-sysinfo = "0.40.1"
+sysinfo = "0.40.4"
 # nix = "0.31.1" # 对 libc 的安全封装
 rustix = "1.1.6" # 来自 Bytecode Alliance, 支持不限于Unix, 不完全覆盖 libc, 但和nix仅依赖一个就好了
 
@@ -461,8 +461,8 @@ snmp2 = { version = "0.5.3", features = ["full"] }
 mib-rs = "0.10.0"
 
 # domain/ai-ml-llm
-agent-client-protocol = "5.2.0" # ACP 的服务端/客户端协议实现
-rmcp = { version = "3.9.0", features = ["server"] } # MCP 的服务端/客户端协议实现
+agent-client-protocol = "5.3.0" # ACP 的服务端/客户端协议实现
+rmcp = { version = "3.11.0", features = ["server"] } # MCP 的服务端/客户端协议实现
 async-openai = { version = "0.43.0", features = [
     "chat-completion-types",
     "response-types",
@@ -475,18 +475,18 @@ async-openai = { version = "0.43.0", features = [
 # chromiumoxide = { version = "0.9.1" } # CDP API
 
 # domain-email
-lettre = { version = "0.11.23", default-features = false, features = [
+lettre = { version = "0.11.24", default-features = false, features = [
     "tokio1",
     "builder",
     "hostname",
     "pool",
     "smtp-transport",
 ] }
-email_address = "0.2.9"
+email_address = "0.2.10"
 
 # domain/doc
 pulldown-cmark = "0.13.6"
-printpdf = "0.12.8"        # 比lopdf、pdf-writer更高层次的PDF生成库
+printpdf = "0.12.9"        # 比lopdf、pdf-writer更高层次的PDF生成库
 # 缺失docx生成
 
 # domain/ebpf
@@ -503,7 +503,7 @@ proptest = "1.12.0"                                      # 属性测试
 # bpf-linker
 # topcoat-cli = "0.10.0" # ureq 依赖 ring
 [dev-dependencies.sqlx-cli] # # rustls 依赖 ring，没提供 aws-lc-rs 选项
-version = "0.9.0"
+version = "0.9.1"
 default-features = false
 features = ["postgres", "sqlite", "mysql", "completions", "sqlx-toml", "rustls"]
 
