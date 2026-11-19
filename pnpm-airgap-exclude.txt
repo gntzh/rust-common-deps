@@ -27,6 +27,9 @@ pnpm
 @mariozechner/clipboard-*
 ! @mariozechner/clipboard-linux-{arm64,x64}-gnu
 
+@napi-rs/keyring-*
+! @napi-rs/keyring-linux-{arm64,x64}-gnu
+
 @nx/nx-{aix,android,darwin,freebsd,linux,netbsd,openbsd,openharmony,sunos,win32}-*
 ! @nx/nx-linux-{arm64,x64}-gnu
 
@@ -59,6 +62,11 @@ pnpm
 
 lightningcss-*
 ! lightningcss-linux-{arm64,x64}-gnu
+
+recheck-*
+! recheck-linux-{arm64,x64}
+# recheck-jar 使用java后端，作为可选依赖，暂时保留
+! recheck-jar
 
 # macOS-only filesystem watcher.
 fsevents
