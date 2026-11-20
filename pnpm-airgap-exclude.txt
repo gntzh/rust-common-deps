@@ -21,6 +21,9 @@ pnpm
 @esbuild/*
 ! @esbuild/linux-{arm64,x64}
 
+@img/sharp-*
+! @img/sharp-{linux,libvips-linux}-{arm64,x64}
+
 @libsql/{aix,android,darwin,freebsd,linux,netbsd,openbsd,openharmony,sunos,win32}-*
 ! @libsql/linux-{arm64,x64}-gnu
 
