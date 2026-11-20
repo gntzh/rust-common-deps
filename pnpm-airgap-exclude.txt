@@ -9,6 +9,9 @@ pnpm
 @pnpm/exe.*
 
 # Native package families: retain only the target Linux variants.
+@agent-browser/cli-*
+! @agent-browser/cli-linux-{arm64,x64}-gnu
+
 @anush008/tokenizers-*
 ! @anush008/tokenizers-linux-{arm64,x64}-gnu
 
