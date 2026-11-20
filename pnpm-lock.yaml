@@ -242,8 +242,8 @@ importers:
         specifier: ^0.4.1
         version: 0.4.1(kysely@0.29.9)
       '@lucide/vue':
-        specifier: ^1.75.0
-        version: 1.75.0(vue@3.5.45(typescript@7.0.2))
+        specifier: ^1.76.0
+        version: 1.76.0(vue@3.5.45(typescript@7.0.2))
       '@mastra/agent-browser':
         specifier: ^0.6.0
         version: 0.6.0(@mastra/core@1.85.0(@grpc/grpc-js@1.14.7)(@opentelemetry/api@1.10.0)(ai@7.0.177(zod@4.6.7))(effect@4.1.4)(express@5.3.0(supports-color@5.5.0))(rxjs@6.6.7)(supports-color@5.5.0)(typebox@1.3.27)(valibot@1.5.0(typescript@7.0.2))(zod-to-json-schema@3.25.2(zod@4.6.7))(zod@4.6.7))(bare-buffer@3.7.3)(supports-color@5.5.0)(zod@4.6.7)
@@ -437,8 +437,8 @@ importers:
         specifier: ^1.6.7
         version: 1.6.7(@langchain/core@1.4.2(@opentelemetry/api@1.10.0)(@opentelemetry/exporter-trace-otlp-proto@0.301.2(@opentelemetry/api@1.10.0))(openai@7.60.0(@aws-sdk/credential-provider-node@3.972.97)(@smithy/signature-v4@5.7.5)(google-auth-library@10.9.1(supports-color@5.5.0))(undici@8.12.4)(ws@8.23.0)(zod@4.6.7))(ws@8.23.0))(@opentelemetry/api@1.10.0)(@opentelemetry/exporter-trace-otlp-proto@0.301.2(@opentelemetry/api@1.10.0))(openai@7.60.0(@aws-sdk/credential-provider-node@3.972.97)(@smithy/signature-v4@5.7.5)(google-auth-library@10.9.1(supports-color@5.5.0))(undici@8.12.4)(ws@8.23.0)(zod@4.6.7))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(ws@8.23.0)
       lucide-react:
-        specifier: ^1.75.0
-        version: 1.75.0(@types/react@19.3.0)(react@19.3.1)
+        specifier: ^1.76.0
+        version: 1.76.0(@types/react@19.3.0)(react@19.3.1)
       mammoth:
         specifier: ^1.13.0
         version: 1.13.0
@@ -539,6 +539,9 @@ importers:
       '@tailwindcss/vite':
         specifier: ^4.3.5
         version: 4.3.5(vite@8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(stylus@0.57.0(supports-color@5.5.0))(tsx@4.23.15)(yaml@2.9.1))
+      '@tintinweb/pi-subagents':
+        specifier: ^0.26.1
+        version: 0.26.1(@earendil-works/pi-ai@1.5.2(@aws-sdk/credential-provider-node@3.972.97)(@modelcontextprotocol/sdk@1.32.2(@cfworker/json-schema@4.1.6)(supports-color@5.5.0)(zod@4.6.7))(@smithy/signature-v4@5.7.5)(supports-color@5.5.0)(undici@8.12.4)(ws@8.23.0)(zod@4.6.7))(@earendil-works/pi-coding-agent@1.5.2(@aws-sdk/credential-provider-node@3.972.97)(@modelcontextprotocol/sdk@1.32.2(@cfworker/json-schema@4.1.6)(supports-color@5.5.0)(zod@4.6.7))(@smithy/signature-v4@5.7.5)(supports-color@5.5.0)(ws@8.23.0)(zod@4.6.7))(@earendil-works/pi-tui@1.5.2)(typebox@1.3.27)
       '@types/node':
         specifier: ^26.6.6
         version: 26.6.6
@@ -2138,8 +2141,8 @@ packages:
     resolution: {integrity: sha512-jM17MqFily1iyT/1LD3r5w8/CZiyapVB0+7vOw48PfVtzyKsXStmHE4jVTyDAD05Tqv3un1xrS9ILUU1ugQAYQ==}
     engines: {node: '>=18'}
 
-  '@huggingface/tasks@0.22.19':
-    resolution: {integrity: sha512-Mk56bIB0DviigYxUXIyOq+CkKgCAy4MYQS8AiPQbSJ3MV4laGFk/C65/87N5Q1BVuR2EBW+eyjqHB+jt9sdugg==}
+  '@huggingface/tasks@0.22.20':
+    resolution: {integrity: sha512-sYmcxQr4/vlr4bm+YEhCS1RnHB13neI7KNKgNlWf44j4WKVoTFhMTAX8SI1EmaoZE1MAbnKtX4TKp3goor+8Wg==}
 
   '@huggingface/transformers@3.8.1':
     resolution: {integrity: sha512-tsTk4zVjImqdqjS8/AOZg2yNLd1z9S5v+7oUPpXaasDRwEDhB+xnglK1k5cad26lL5/ZIaeREgWWy0bs9y9pPA==}
@@ -2666,8 +2669,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@lucide/vue@1.75.0':
-    resolution: {integrity: sha512-aO44J4WzSE7+xsPa0L0SQ3Db8jYm+8piJdy95Is4UTpqBV4Krd5XKsivCBLPUSHd6pPZsJ+ou5C5V6KNtfxRFQ==}
+  '@lucide/vue@1.76.0':
+    resolution: {integrity: sha512-jipcmtcHPhYgKwXLFjRu8ZBfq1cTb1uD5j7y5s69FMBLcCO9bg/WDwvkAlum/sqqB8xUfkM4Bd/n0bW4rzCBDw==}
     peerDependencies:
       vue: '>=3.0.1'
 
@@ -4058,11 +4061,11 @@ packages:
     resolution: {integrity: sha512-3fhvdnSFTcLGgaVIISc+269N4j2ugpUsiRErdT+M2vyOc0b3Vgs2mvSPdFyq2insCL4vFLiHOZxg7SddSFjMTQ==}
     engines: {node: '>=22.13'}
 
-  '@posthog/core@1.69.1':
-    resolution: {integrity: sha512-36hlJRZlVh5d+yBOmqObT162SrqNes9yY4x4wLDXVSu5Dzdt19KNxQ136cd37+U0yABZVx7ehjtWslyn1iG+0Q==}
+  '@posthog/core@1.69.2':
+    resolution: {integrity: sha512-toMfPKklwLW+a4ZY3/EzM3GNMVXmk2ylGb8NPJXRH4igXMoI8wgNL2jqXOiglWAXqFBLZGYFN1oQx6LVmUTxTg==}
 
-  '@posthog/types@1.425.1':
-    resolution: {integrity: sha512-mh7jyQ5lN+XCeOnMdYkBEFtO/G0TxeLOKTWNH6E6OZjxS4nVM0Tb2xQt+FG5DCFM9qzL2HmuX6A793TwlJVDvw==}
+  '@posthog/types@1.427.0':
+    resolution: {integrity: sha512-2RPVfuGIx0iys78mTOcfdzN7/w7AM1Ak3yu9++4/FonPf08mwGqDkJjThz2dA/34666ToNw5Q4fZoFdgvfNUHw==}
 
   '@promptbook/utils@0.69.5':
     resolution: {integrity: sha512-xm5Ti/Hp3o4xHrsK9Yy3MS6KbDxYbq485hDsFvxqaNA7equHLPdo8H8faTitTeb14QCDfLW4iwCxdVYu5sn6YQ==}
@@ -5179,6 +5182,14 @@ packages:
     resolution: {integrity: sha512-qTwG7HNr5o+FPd/u+T05N73A8howtkB9FgQI71VcBzx6J2KsYzlVugRz/0ji17kl26D8SAdKux1Wmk3yhTI1Kw==}
     peerDependencies:
       vue: ^2.7.0 || ^3.0.0
+
+  '@tintinweb/pi-subagents@0.26.1':
+    resolution: {integrity: sha512-LGEh32wFaesvOP95Pta1exrq2oRA56AOSy30X4cmJkqMmiYlnTYPQf0Pk3TviCTZ8SDvD58Zams1davdk4WZJQ==}
+    peerDependencies:
+      '@earendil-works/pi-ai': '>=1.1.0'
+      '@earendil-works/pi-coding-agent': '>=1.1.0'
+      '@earendil-works/pi-tui': '>=1.1.0'
+      typebox: '*'
 
   '@tootallnate/quickjs-emscripten@0.23.0':
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
@@ -7129,8 +7140,8 @@ packages:
     engines: {node: '>=0.12.18'}
     hasBin: true
 
-  electron-to-chromium@1.5.490:
-    resolution: {integrity: sha512-I0dPyEsiaYAlbGJlr0SdRRGSWk9BpOz8AIo/4f93A6bAGuN3YafmT71rpss72SA05isaAkcAOYcW0F0H48om4Q==}
+  electron-to-chromium@1.5.491:
+    resolution: {integrity: sha512-zMOQrvaTekJMwENqx1Rnyl3qieqGxIui5CRu9g6ktKzQ/T54fq0Qfr3V/SEhGrkStWI3eYMSzMN4rbyFwfQSzA==}
 
   elegant-spinner@1.0.1:
     resolution: {integrity: sha512-B+ZM+RXvRqQaAmkMlO/oSe5nMUOaUnyfGYCEHoR8wrXsZR2mA0XVibsxV1bvTwxdRWah1PkQqso2EzhILGHtEQ==}
@@ -8910,8 +8921,8 @@ packages:
     resolution: {integrity: sha512-5J9ysMYUpYIg9RF2vJpy9SinEmSviFSe0GyPpCQ4L5QSkLAgeLXlTAOu2ZwWUU5m+0SBl6gUU1R1ZQB3aKypfA==}
     engines: {bun: '>=1.0.0', deno: '>=1.30.0', node: '>=8.0.0'}
 
-  lucide-react@1.75.0:
-    resolution: {integrity: sha512-piesXAZIXru9d5lHBoM6cPHOBs5+QkMx+3EXwG3xWJ7qdViuz92JtYN0u9jMB6jt+2WbQrwhvJGdMwGnL3EOfA==}
+  lucide-react@1.76.0:
+    resolution: {integrity: sha512-wRVHt2Xf64GXndB4rQOY9+3Wy9oJ59HDMYv6vwhT0hpSwUxQhG/RM9YijnOmvmIQ+VI/n+1V/FKd6gP4XL2aBQ==}
     peerDependencies:
       '@types/react': '*'
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -9309,6 +9320,11 @@ packages:
   nanoid@3.3.20:
     resolution: {integrity: sha512-uKdg2G3GNCKQn9byYOpxbGqrT2fGO5KRt5J/8b3pok8rT6qxGWF6hxMyJiEYtAf+FVyYuD9hRaDqX5uPFYJ4ZQ==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+
+  nanoid@5.1.16:
+    resolution: {integrity: sha512-kVrnsrJqMR8+oLJnGEmSWw9BivK5mt7H3FZatVRjrc5wGqFYuBxX1yG7+A7Gi5AefkX6t/oCkizcQgpu0cY1dQ==}
+    engines: {node: ^18 || >=20}
     hasBin: true
 
   napi-build-utils@2.0.0:
@@ -10860,9 +10876,9 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  source-map-js@1.2.3:
-    resolution: {integrity: sha512-xj+WrAkyv5Qp+t7r9N5HvCBu7g1qOe6CKRNpq22X1GGcPEQADFU54v5qsPVs3/vrUFQ7XivFrcAVKA2stI0kWA==}
-    engines: {node: '>=0.10.0'}
+  source-map-js@1.2.4:
+    resolution: {integrity: sha512-J7ZjMvHd9O1fcT/5V09QWaaSl2BbWx3F6O08spde82Namf9UB0GxRVIPiNbVsdKkoizHiSpTodo3vp2bAy91MA==}
+    engines: {node: '>=6.0.0'}
 
   source-map-resolve@0.6.0:
     resolution: {integrity: sha512-KXBr9d/fO/bWo97NXsPIAW1bFSBOuCnjbNTBMO7N59hsv5i9yzRDfcYwwt0l04+VqnKC+EwzvJZIP/qkuMgR/w==}
@@ -13953,14 +13969,14 @@ snapshots:
 
   '@huggingface/hub@2.17.11':
     dependencies:
-      '@huggingface/tasks': 0.22.19
+      '@huggingface/tasks': 0.22.20
       '@huggingface/xetchunk-wasm': 0.2.0
     optionalDependencies:
       cli-progress: 3.12.0
 
   '@huggingface/jinja@0.5.13': {}
 
-  '@huggingface/tasks@0.22.19': {}
+  '@huggingface/tasks@0.22.20': {}
 
   '@huggingface/transformers@3.8.1':
     dependencies:
@@ -14438,7 +14454,7 @@ snapshots:
   '@libsql/win32-x64-msvc@0.5.29':
     optional: true
 
-  '@lucide/vue@1.75.0(vue@3.5.45(typescript@7.0.2))':
+  '@lucide/vue@1.76.0(vue@3.5.45(typescript@7.0.2))':
     dependencies:
       vue: 3.5.45(typescript@7.0.2)
 
@@ -16030,11 +16046,11 @@ snapshots:
     dependencies:
       validate-npm-package-name: 7.0.2
 
-  '@posthog/core@1.69.1':
+  '@posthog/core@1.69.2':
     dependencies:
-      '@posthog/types': 1.425.1
+      '@posthog/types': 1.427.0
 
-  '@posthog/types@1.425.1': {}
+  '@posthog/types@1.427.0': {}
 
   '@promptbook/utils@0.69.5':
     dependencies:
@@ -16907,7 +16923,7 @@ snapshots:
       jiti: 2.7.0
       lightningcss: 1.33.0
       magic-string: 1.4.5
-      source-map-js: 1.2.3
+      source-map-js: 1.2.4
       tailwindcss: 4.3.5
 
   '@tailwindcss/oxide-android-arm64@4.3.5':
@@ -16974,6 +16990,16 @@ snapshots:
     dependencies:
       '@tanstack/virtual-core': 3.19.11
       vue: 3.5.45(typescript@5.9.3)
+
+  '@tintinweb/pi-subagents@0.26.1(@earendil-works/pi-ai@1.5.2(@aws-sdk/credential-provider-node@3.972.97)(@modelcontextprotocol/sdk@1.32.2(@cfworker/json-schema@4.1.6)(supports-color@5.5.0)(zod@4.6.7))(@smithy/signature-v4@5.7.5)(supports-color@5.5.0)(undici@8.12.4)(ws@8.23.0)(zod@4.6.7))(@earendil-works/pi-coding-agent@1.5.2(@aws-sdk/credential-provider-node@3.972.97)(@modelcontextprotocol/sdk@1.32.2(@cfworker/json-schema@4.1.6)(supports-color@5.5.0)(zod@4.6.7))(@smithy/signature-v4@5.7.5)(supports-color@5.5.0)(ws@8.23.0)(zod@4.6.7))(@earendil-works/pi-tui@1.5.2)(typebox@1.3.27)':
+    dependencies:
+      '@earendil-works/pi-ai': 1.5.2(@aws-sdk/credential-provider-node@3.972.97)(@modelcontextprotocol/sdk@1.32.2(@cfworker/json-schema@4.1.6)(supports-color@5.5.0)(zod@4.6.7))(@smithy/signature-v4@5.7.5)(supports-color@5.5.0)(undici@8.12.4)(ws@8.23.0)(zod@4.6.7)
+      '@earendil-works/pi-coding-agent': 1.5.2(@aws-sdk/credential-provider-node@3.972.97)(@modelcontextprotocol/sdk@1.32.2(@cfworker/json-schema@4.1.6)(supports-color@5.5.0)(zod@4.6.7))(@smithy/signature-v4@5.7.5)(supports-color@5.5.0)(ws@8.23.0)(zod@4.6.7)
+      '@earendil-works/pi-tui': 1.5.2
+      ajv: 8.20.0
+      croner: 10.0.1
+      nanoid: 5.1.16
+      typebox: 1.3.27
 
   '@tootallnate/quickjs-emscripten@0.23.0': {}
 
@@ -17241,7 +17267,7 @@ snapshots:
       '@vue/shared': 3.5.45
       entities: 7.0.1
       estree-walker: 2.0.2
-      source-map-js: 1.2.3
+      source-map-js: 1.2.4
 
   '@vue/compiler-dom@3.5.45':
     dependencies:
@@ -17258,7 +17284,7 @@ snapshots:
       estree-walker: 2.0.2
       magic-string: 0.30.21
       postcss: 8.5.33
-      source-map-js: 1.2.3
+      source-map-js: 1.2.4
 
   '@vue/compiler-ssr@3.5.45':
     dependencies:
@@ -17932,7 +17958,7 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.11.38
       caniuse-lite: 1.0.30001826
-      electron-to-chromium: 1.5.490
+      electron-to-chromium: 1.5.491
       node-releases: 2.0.65
       update-browserslist-db: 1.4.0(browserslist@4.29.6)
 
@@ -18749,7 +18775,7 @@ snapshots:
 
   ejs@5.0.1: {}
 
-  electron-to-chromium@1.5.490: {}
+  electron-to-chromium@1.5.491: {}
 
   elegant-spinner@1.0.1: {}
 
@@ -20668,7 +20694,7 @@ snapshots:
 
   lru.min@1.1.5: {}
 
-  lucide-react@1.75.0(@types/react@19.3.0)(react@19.3.1):
+  lucide-react@1.76.0(@types/react@19.3.0)(react@19.3.1):
     dependencies:
       react: 19.3.1
     optionalDependencies:
@@ -21284,6 +21310,8 @@ snapshots:
     optional: true
 
   nanoid@3.3.20: {}
+
+  nanoid@5.1.16: {}
 
   napi-build-utils@2.0.0: {}
 
@@ -22188,7 +22216,7 @@ snapshots:
     dependencies:
       nanoid: 3.3.20
       picocolors: 1.1.1
-      source-map-js: 1.2.3
+      source-map-js: 1.2.4
 
   postgres-array@2.0.0: {}
 
@@ -22202,7 +22230,7 @@ snapshots:
 
   posthog-node@5.74.0(@opentelemetry/api@1.10.0)(rxjs@6.6.7):
     dependencies:
-      '@posthog/core': 1.69.1
+      '@posthog/core': 1.69.2
     optionalDependencies:
       '@opentelemetry/api': 1.10.0
       rxjs: 6.6.7
@@ -23208,7 +23236,7 @@ snapshots:
       sort-object-keys: 2.1.0
       tinyglobby: 0.2.17
 
-  source-map-js@1.2.3: {}
+  source-map-js@1.2.4: {}
 
   source-map-resolve@0.6.0:
     dependencies:
