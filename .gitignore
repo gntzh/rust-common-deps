@@ -5,3 +5,5 @@ vendor.*
 /.vscode
 node_modules
 /.pnpm-airgap
+
+/containers
